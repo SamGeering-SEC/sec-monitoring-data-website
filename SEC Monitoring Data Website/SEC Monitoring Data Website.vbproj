@@ -1,0 +1,1859 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2808EE2E-CE51-461B-A5E8-B4D6755AD508}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SEC_Monitoring_Data_Website</RootNamespace>
+    <AssemblyName>SEC Monitoring Data Website</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>ffcc76cd</NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SEC Monitoring Data Website.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SEC Monitoring Data Website.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNet.Highcharts">
+      <HintPath>..\packages\DotNet.Highcharts.4.0\lib\DotNet.Highcharts.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.3.4.13329\lib\net45-full\DotNetOpenAuth.AspNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.1.0.9, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.3.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.3.0\lib\net45\ExcelDataReader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.3.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.3.0\lib\net45\ExcelDataReader.DataSet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.0.5\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.DiskCache, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.DiskCache.4.0.5\lib\net45\ImageResizer.Plugins.DiskCache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.PrettyGifs, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.Plugins.PrettyGifs.4.0.5\lib\net45\ImageResizer.Plugins.PrettyGifs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JQueryUIHelpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=1440f6df3b58b47e, processorArchitecture=MSIL">
+      <HintPath>..\packages\jQueryUIHelpers.Mvc5.3.0.0\lib\net45\JQueryUIHelpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.3.2.3\lib\net45\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcCheckBoxList, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcCheckBoxList.1.4.5\lib\net45\MvcCheckBoxList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.2.3\lib\net45\WebMatrix.WebData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.vb" />
+    <Compile Include="App_Start\BundleConfig.vb" />
+    <Compile Include="App_Start\FilterConfig.vb" />
+    <Compile Include="App_Start\RouteConfig.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\AssessmentCriteriaController.vb" />
+    <Compile Include="Controllers\AssessmentCriterionGroupsController.vb" />
+    <Compile Include="Controllers\Base\ControllerBase.vb" />
+    <Compile Include="Controllers\CalculationFiltersController.vb" />
+    <Compile Include="Controllers\ContactsController.vb" />
+    <Compile Include="Controllers\CountriesController.vb" />
+    <Compile Include="Controllers\DocumentsController.vb" />
+    <Compile Include="Controllers\DocumentTypesController.vb" />
+    <Compile Include="Controllers\LogInController.vb" />
+    <Compile Include="Controllers\MeasurementCommentsController.vb" />
+    <Compile Include="Controllers\MeasurementFilesController.vb" />
+    <Compile Include="Controllers\StandardWeeklyWorkingHoursController.vb" />
+    <Compile Include="Controllers\UsersController.vb" />
+    <Compile Include="Controllers\VariedWeeklyWorkingHoursController.vb" />
+    <Compile Include="Migrations\201705222305402_InitialCreate.Designer.vb">
+      <DependentUpon>201705222305402_InitialCreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705222305402_InitialCreate.vb" />
+    <Compile Include="Migrations\201705230036389_Initial.Designer.vb">
+      <DependentUpon>201705230036389_Initial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705230036389_Initial.vb" />
+    <Compile Include="Migrations\201706111528430_RemoveLinkBetweenMonitorAndSettings.Designer.vb">
+      <DependentUpon>201706111528430_RemoveLinkBetweenMonitorAndSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706111528430_RemoveLinkBetweenMonitorAndSettings.vb" />
+    <Compile Include="Migrations\201706112031095_SetMonitorSettingsIdToManual.Designer.vb">
+      <DependentUpon>201706112031095_SetMonitorSettingsIdToManual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706112031095_SetMonitorSettingsIdToManual.vb" />
+    <Compile Include="Migrations\201706112036487_SetSomeIdsToManual.Designer.vb">
+      <DependentUpon>201706112036487_SetSomeIdsToManual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706112036487_SetSomeIdsToManual.vb" />
+    <Compile Include="Migrations\201706121229077_MovedAccessLevelsFromContactsToUsers.Designer.vb">
+      <DependentUpon>201706121229077_MovedAccessLevelsFromContactsToUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706121229077_MovedAccessLevelsFromContactsToUsers.vb" />
+    <Compile Include="Migrations\201706130250270_AddedProjectPermission.Designer.vb">
+      <DependentUpon>201706130250270_AddedProjectPermission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706130250270_AddedProjectPermission.vb" />
+    <Compile Include="Migrations\201706130253176_LinkedUserAccessLevelsToProjectPermissions.Designer.vb">
+      <DependentUpon>201706130253176_LinkedUserAccessLevelsToProjectPermissions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706130253176_LinkedUserAccessLevelsToProjectPermissions.vb" />
+    <Compile Include="Migrations\201706131321505_AddUserAccessLevelPropertyCanViewProjectDetails.Designer.vb">
+      <DependentUpon>201706131321505_AddUserAccessLevelPropertyCanViewProjectDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706131321505_AddUserAccessLevelPropertyCanViewProjectDetails.vb" />
+    <Compile Include="Migrations\201706131359018_AddedPermissionsForCalculationFiltersController.Designer.vb">
+      <DependentUpon>201706131359018_AddedPermissionsForCalculationFiltersController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706131359018_AddedPermissionsForCalculationFiltersController.vb" />
+    <Compile Include="Migrations\201706131524500_AddedPermissionsForContactsController.Designer.vb">
+      <DependentUpon>201706131524500_AddedPermissionsForContactsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706131524500_AddedPermissionsForContactsController.vb" />
+    <Compile Include="Migrations\201706131540368_AddedPermissionsForCountriesController.Designer.vb">
+      <DependentUpon>201706131540368_AddedPermissionsForCountriesController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706131540368_AddedPermissionsForCountriesController.vb" />
+    <Compile Include="Migrations\201706132034309_AddedPermissionsForDocumentsController.Designer.vb">
+      <DependentUpon>201706132034309_AddedPermissionsForDocumentsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706132034309_AddedPermissionsForDocumentsController.vb" />
+    <Compile Include="Migrations\201706132105510_AddedPermissionsForDocumentTypesController.Designer.vb">
+      <DependentUpon>201706132105510_AddedPermissionsForDocumentTypesController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706132105510_AddedPermissionsForDocumentTypesController.vb" />
+    <Compile Include="Migrations\201706132132514_AddedPermissionsForHomeController.Designer.vb">
+      <DependentUpon>201706132132514_AddedPermissionsForHomeController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706132132514_AddedPermissionsForHomeController.vb" />
+    <Compile Include="Migrations\201706132146015_AddedPermissionsForMeasurementCommentsController.Designer.vb">
+      <DependentUpon>201706132146015_AddedPermissionsForMeasurementCommentsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706132146015_AddedPermissionsForMeasurementCommentsController.vb" />
+    <Compile Include="Migrations\201706132159509_AddedPermissionsForMeasurementCommentTypesController.Designer.vb">
+      <DependentUpon>201706132159509_AddedPermissionsForMeasurementCommentTypesController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706132159509_AddedPermissionsForMeasurementCommentTypesController.vb" />
+    <Compile Include="Migrations\201706132343392_AddedPermissionsForMeasurementFilesController.Designer.vb">
+      <DependentUpon>201706132343392_AddedPermissionsForMeasurementFilesController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706132343392_AddedPermissionsForMeasurementFilesController.vb" />
+    <Compile Include="Migrations\201706140032460_AddedPermissionsForMeasurementsController.Designer.vb">
+      <DependentUpon>201706140032460_AddedPermissionsForMeasurementsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706140032460_AddedPermissionsForMeasurementsController.vb" />
+    <Compile Include="Migrations\201706140052091_AddedPermissionsForMonitorDeploymentRecords.Designer.vb">
+      <DependentUpon>201706140052091_AddedPermissionsForMonitorDeploymentRecords.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706140052091_AddedPermissionsForMonitorDeploymentRecords.vb" />
+    <Compile Include="Migrations\201706140208159_AddedPermissionsForMonitorLocationsController.Designer.vb">
+      <DependentUpon>201706140208159_AddedPermissionsForMonitorLocationsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706140208159_AddedPermissionsForMonitorLocationsController.vb" />
+    <Compile Include="Migrations\201706140221191_AddedPermissionsForMonitorsController.Designer.vb">
+      <DependentUpon>201706140221191_AddedPermissionsForMonitorsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706140221191_AddedPermissionsForMonitorsController.vb" />
+    <Compile Include="Migrations\201706140236533_AddedPermissionsForOrganisationsController.Designer.vb">
+      <DependentUpon>201706140236533_AddedPermissionsForOrganisationsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706140236533_AddedPermissionsForOrganisationsController.vb" />
+    <Compile Include="Migrations\201706140320395_AddedPermissionsForOrganisationTypesAndProjectsControllers.Designer.vb">
+      <DependentUpon>201706140320395_AddedPermissionsForOrganisationTypesAndProjectsControllers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706140320395_AddedPermissionsForOrganisationTypesAndProjectsControllers.vb" />
+    <Compile Include="Migrations\201706141334277_AddedPermissionsForUsersController.Designer.vb">
+      <DependentUpon>201706141334277_AddedPermissionsForUsersController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141334277_AddedPermissionsForUsersController.vb" />
+    <Compile Include="Migrations\201706141922299_AddedPermissionsForUserAccessLevelsController.Designer.vb">
+      <DependentUpon>201706141922299_AddedPermissionsForUserAccessLevelsController.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141922299_AddedPermissionsForUserAccessLevelsController.vb" />
+    <Compile Include="Migrations\201706141948552_AddedUsersPropertyToUserAccessLevel.Designer.vb">
+      <DependentUpon>201706141948552_AddedUsersPropertyToUserAccessLevel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141948552_AddedUsersPropertyToUserAccessLevel.vb" />
+    <Compile Include="Migrations\201706181605444_AddedPermissionsForMeasurementViews.Designer.vb">
+      <DependentUpon>201706181605444_AddedPermissionsForMeasurementViews.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706181605444_AddedPermissionsForMeasurementViews.vb" />
+    <Compile Include="Migrations\201706181614073_CorrectedPermissionForMeasurementViews.Designer.vb">
+      <DependentUpon>201706181614073_CorrectedPermissionForMeasurementViews.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706181614073_CorrectedPermissionForMeasurementViews.vb" />
+    <Compile Include="Migrations\201706250208211_AddedSaltPropertyToUserModel.Designer.vb">
+      <DependentUpon>201706250208211_AddedSaltPropertyToUserModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706250208211_AddedSaltPropertyToUserModel.vb" />
+    <Compile Include="Migrations\201706281810021_AddedFirstAndLastMeasurementFieldsToMeasurementFiles.Designer.vb">
+      <DependentUpon>201706281810021_AddedFirstAndLastMeasurementFieldsToMeasurementFiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706281810021_AddedFirstAndLastMeasurementFieldsToMeasurementFiles.vb" />
+    <Compile Include="Migrations\201707011537364_AddedNumberOfMeasurementsFieldToMeasurementFiles.Designer.vb">
+      <DependentUpon>201707011537364_AddedNumberOfMeasurementsFieldToMeasurementFiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707011537364_AddedNumberOfMeasurementsFieldToMeasurementFiles.vb" />
+    <Compile Include="Migrations\201707031952369_AddedLockingForUserAccounts.Designer.vb">
+      <DependentUpon>201707031952369_AddedLockingForUserAccounts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707031952369_AddedLockingForUserAccounts.vb" />
+    <Compile Include="Migrations\201707032027140_AddedCanInitiatePasswordResetsPropertyToUserAccessLevels.Designer.vb">
+      <DependentUpon>201707032027140_AddedCanInitiatePasswordResetsPropertyToUserAccessLevels.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707032027140_AddedCanInitiatePasswordResetsPropertyToUserAccessLevels.vb" />
+    <Compile Include="Migrations\201707091144230_FixedTypeOfAssessmentCriterionPropertyAssessedLevelMarkersOn.Designer.vb">
+      <DependentUpon>201707091144230_FixedTypeOfAssessmentCriterionPropertyAssessedLevelMarkersOn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707091144230_FixedTypeOfAssessmentCriterionPropertyAssessedLevelMarkersOn.vb" />
+    <Compile Include="Migrations\201707091213403_FixedTypeOfAssessmentCriterionPropertyMergeAssessedLevels.Designer.vb">
+      <DependentUpon>201707091213403_FixedTypeOfAssessmentCriterionPropertyMergeAssessedLevels.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707091213403_FixedTypeOfAssessmentCriterionPropertyMergeAssessedLevels.vb" />
+    <Compile Include="Migrations\201708160156587_AddedCommentDateTimes.Designer.vb">
+      <DependentUpon>201708160156587_AddedCommentDateTimes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708160156587_AddedCommentDateTimes.vb" />
+    <Compile Include="Migrations\201708161016390_AddedReceivesLockNotificationsToUserModel.Designer.vb">
+      <DependentUpon>201708161016390_AddedReceivesLockNotificationsToUserModel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708161016390_AddedReceivesLockNotificationsToUserModel.vb" />
+    <Compile Include="Migrations\201708300047009_AddedSystemMessagesTable.Designer.vb">
+      <DependentUpon>201708300047009_AddedSystemMessagesTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708300047009_AddedSystemMessagesTable.vb" />
+    <Compile Include="Migrations\201709010029115_AddedPermissionsForSystemMessages.Designer.vb">
+      <DependentUpon>201709010029115_AddedPermissionsForSystemMessages.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709010029115_AddedPermissionsForSystemMessages.vb" />
+    <Compile Include="Migrations\201709010031426_ExtendedPermissionsForSystemMessages.Designer.vb">
+      <DependentUpon>201709010031426_ExtendedPermissionsForSystemMessages.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709010031426_ExtendedPermissionsForSystemMessages.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
+    <Compile Include="Models\Database\Classes\AirQualitySetting.vb" />
+    <Compile Include="Models\Database\Classes\AssessmentCriterion.vb" />
+    <Compile Include="Models\Database\Classes\AssessmentCriterionGroup.vb" />
+    <Compile Include="Models\Database\Classes\AssessmentPeriodDurationType.vb" />
+    <Compile Include="Models\Database\Classes\CalculationAggregateFunction.vb" />
+    <Compile Include="Models\Database\Classes\CalculationFilter.vb" />
+    <Compile Include="Models\Database\Classes\Contact.vb" />
+    <Compile Include="Models\Database\Classes\Country.vb" />
+    <Compile Include="Models\Database\Classes\DayOfWeek.vb" />
+    <Compile Include="Models\Database\Classes\Document.vb" />
+    <Compile Include="Models\Database\Classes\DocumentType.vb" />
+    <Compile Include="Models\Database\Classes\Measurement.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementComment.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementCommentType.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementFile.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementFileType.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementMetric.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementType.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementView.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementViewGroup.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementViewSequenceSetting.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementViewSeriesType.vb" />
+    <Compile Include="Models\Database\Classes\MeasurementViewTableType.vb" />
+    <Compile Include="Models\Database\Classes\Monitor.vb" />
+    <Compile Include="Models\Database\Classes\MonitorDeploymentRecord.vb" />
+    <Compile Include="Models\Database\Classes\MonitorLocation.vb" />
+    <Compile Include="Models\Database\Classes\MonitorLocationGeoCoords.vb" />
+    <Compile Include="Models\Database\Classes\MonitorSettings.vb" />
+    <Compile Include="Models\Database\Classes\MonitorStatus.vb" />
+    <Compile Include="Models\Database\Classes\NoiseSetting.vb" />
+    <Compile Include="Models\Database\Classes\Organisation.vb" />
+    <Compile Include="Models\Database\Classes\OrganisationType.vb" />
+    <Compile Include="Models\Database\Classes\Project.vb" />
+    <Compile Include="Models\Database\Classes\ProjectGeoCoords.vb" />
+    <Compile Include="Models\Database\Classes\ProjectPermission.vb" />
+    <Compile Include="Models\Database\Classes\PublicHoliday.vb" />
+    <Compile Include="Models\Database\Classes\SeriesDashStyle.vb" />
+    <Compile Include="Models\Database\Classes\StandardDailyWorkingHours.vb" />
+    <Compile Include="Models\Database\Classes\StandardWeeklyWorkingHours.vb" />
+    <Compile Include="Models\Database\Classes\SystemMessage.vb" />
+    <Compile Include="Models\Database\Classes\ThresholdAggregateDuration.vb" />
+    <Compile Include="Models\Database\Classes\ThresholdType.vb" />
+    <Compile Include="Models\Database\Classes\User.vb" />
+    <Compile Include="Models\Database\Classes\UserAccessLevel.vb" />
+    <Compile Include="Models\Database\Classes\VariedDailyWorkingHours.vb" />
+    <Compile Include="Models\Database\Classes\VariedWeeklyWorkingHours.vb" />
+    <Compile Include="Models\Database\Classes\VibrationSetting.vb" />
+    <Compile Include="Models\Database\Classes\WebsitePage.vb" />
+    <Compile Include="Models\Database\Context\SECMonitoringDbContext.vb" />
+    <Compile Include="Models\Debugging.vb" />
+    <Compile Include="Models\FIleUpload\MeasurementFileSettings.vb" />
+    <Compile Include="Controllers\MeasurementCommentTypesController.vb" />
+    <Compile Include="Controllers\MeasurementMetricsController.vb" />
+    <Compile Include="Controllers\MeasurementsController.vb" />
+    <Compile Include="Controllers\MeasurementViewGroupsController.vb" />
+    <Compile Include="Controllers\MeasurementViewsController.vb" />
+    <Compile Include="Controllers\MeasurementViewSequenceSettingsController.vb" />
+    <Compile Include="Controllers\MonitorDeploymentRecordsController.vb" />
+    <Compile Include="Controllers\MonitorLocationsController.vb" />
+    <Compile Include="Controllers\MonitorsController.vb" />
+    <Compile Include="Controllers\OrganisationsController.vb" />
+    <Compile Include="Controllers\OrganisationTypesController.vb" />
+    <Compile Include="Controllers\ProjectsController.vb" />
+    <Compile Include="Controllers\PublicHolidaysController.vb" />
+    <Compile Include="Controllers\UserAccessLevelsController.vb" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CompilerServices.vb" />
+    <Compile Include="Models\ExtensionMethods.vb" />
+    <Compile Include="Models\Globals.vb" />
+    <Compile Include="Models\MeasurementCalculations.vb" />
+    <Compile Include="Models\MeasurementClasses.vb" />
+    <Compile Include="Models\Interfaces\MeasurementInterfaces.vb" />
+    <Compile Include="Models\MeasurementFileSettings\AirQualitySpreadsheetTemplateFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\NoiseSpreadsheetTemplateFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\OsirisFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\PPVLiveFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\RedboxFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\RionLeqLiveWebsystemFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\RionRCDSFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\SigicomVibrationFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\SPLTrackFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\SpreadsheetTemplateFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\VibraFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\VibrationSpreadsheetTemplateFileSettings.vb" />
+    <Compile Include="Models\MeasurementsDAL.vb" />
+    <Compile Include="Models\FIleUpload\MetricMapping.vb" />
+    <Compile Include="Models\ModelMetadata.vb" />
+    <Compile Include="Models\NinjectDependencyResolver.vb" />
+    <Compile Include="Models\Interfaces\NonMeasurementInterfaces.vb" />
+    <Compile Include="Models\PartialModels.vb" />
+    <Compile Include="Models\Interfaces\SettingsInterfaces.vb" />
+    <Compile Include="Models\Password.vb" />
+    <Compile Include="Models\Security.vb" />
+    <Compile Include="Models\SetUp\InitialSeed.vb" />
+    <Compile Include="Models\SetUp\SeedTables.vb" />
+    <Compile Include="Models\UIModels.vb" />
+    <Compile Include="Models\ViewModels.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controllers\HomeController.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705222305402_InitialCreate.resx">
+      <DependentUpon>201705222305402_InitialCreate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705230036389_Initial.resx">
+      <DependentUpon>201705230036389_Initial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706111528430_RemoveLinkBetweenMonitorAndSettings.resx">
+      <DependentUpon>201706111528430_RemoveLinkBetweenMonitorAndSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706112031095_SetMonitorSettingsIdToManual.resx">
+      <DependentUpon>201706112031095_SetMonitorSettingsIdToManual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706112036487_SetSomeIdsToManual.resx">
+      <DependentUpon>201706112036487_SetSomeIdsToManual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706121229077_MovedAccessLevelsFromContactsToUsers.resx">
+      <DependentUpon>201706121229077_MovedAccessLevelsFromContactsToUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706130250270_AddedProjectPermission.resx">
+      <DependentUpon>201706130250270_AddedProjectPermission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706130253176_LinkedUserAccessLevelsToProjectPermissions.resx">
+      <DependentUpon>201706130253176_LinkedUserAccessLevelsToProjectPermissions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706131321505_AddUserAccessLevelPropertyCanViewProjectDetails.resx">
+      <DependentUpon>201706131321505_AddUserAccessLevelPropertyCanViewProjectDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706131359018_AddedPermissionsForCalculationFiltersController.resx">
+      <DependentUpon>201706131359018_AddedPermissionsForCalculationFiltersController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706131524500_AddedPermissionsForContactsController.resx">
+      <DependentUpon>201706131524500_AddedPermissionsForContactsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706131540368_AddedPermissionsForCountriesController.resx">
+      <DependentUpon>201706131540368_AddedPermissionsForCountriesController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706132034309_AddedPermissionsForDocumentsController.resx">
+      <DependentUpon>201706132034309_AddedPermissionsForDocumentsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706132105510_AddedPermissionsForDocumentTypesController.resx">
+      <DependentUpon>201706132105510_AddedPermissionsForDocumentTypesController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706132132514_AddedPermissionsForHomeController.resx">
+      <DependentUpon>201706132132514_AddedPermissionsForHomeController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706132146015_AddedPermissionsForMeasurementCommentsController.resx">
+      <DependentUpon>201706132146015_AddedPermissionsForMeasurementCommentsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706132159509_AddedPermissionsForMeasurementCommentTypesController.resx">
+      <DependentUpon>201706132159509_AddedPermissionsForMeasurementCommentTypesController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706132343392_AddedPermissionsForMeasurementFilesController.resx">
+      <DependentUpon>201706132343392_AddedPermissionsForMeasurementFilesController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706140032460_AddedPermissionsForMeasurementsController.resx">
+      <DependentUpon>201706140032460_AddedPermissionsForMeasurementsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706140052091_AddedPermissionsForMonitorDeploymentRecords.resx">
+      <DependentUpon>201706140052091_AddedPermissionsForMonitorDeploymentRecords.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706140208159_AddedPermissionsForMonitorLocationsController.resx">
+      <DependentUpon>201706140208159_AddedPermissionsForMonitorLocationsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706140221191_AddedPermissionsForMonitorsController.resx">
+      <DependentUpon>201706140221191_AddedPermissionsForMonitorsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706140236533_AddedPermissionsForOrganisationsController.resx">
+      <DependentUpon>201706140236533_AddedPermissionsForOrganisationsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706140320395_AddedPermissionsForOrganisationTypesAndProjectsControllers.resx">
+      <DependentUpon>201706140320395_AddedPermissionsForOrganisationTypesAndProjectsControllers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141334277_AddedPermissionsForUsersController.resx">
+      <DependentUpon>201706141334277_AddedPermissionsForUsersController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141922299_AddedPermissionsForUserAccessLevelsController.resx">
+      <DependentUpon>201706141922299_AddedPermissionsForUserAccessLevelsController.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141948552_AddedUsersPropertyToUserAccessLevel.resx">
+      <DependentUpon>201706141948552_AddedUsersPropertyToUserAccessLevel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181605444_AddedPermissionsForMeasurementViews.resx">
+      <DependentUpon>201706181605444_AddedPermissionsForMeasurementViews.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181614073_CorrectedPermissionForMeasurementViews.resx">
+      <DependentUpon>201706181614073_CorrectedPermissionForMeasurementViews.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706250208211_AddedSaltPropertyToUserModel.resx">
+      <DependentUpon>201706250208211_AddedSaltPropertyToUserModel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706281810021_AddedFirstAndLastMeasurementFieldsToMeasurementFiles.resx">
+      <DependentUpon>201706281810021_AddedFirstAndLastMeasurementFieldsToMeasurementFiles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707011537364_AddedNumberOfMeasurementsFieldToMeasurementFiles.resx">
+      <DependentUpon>201707011537364_AddedNumberOfMeasurementsFieldToMeasurementFiles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707031952369_AddedLockingForUserAccounts.resx">
+      <DependentUpon>201707031952369_AddedLockingForUserAccounts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707032027140_AddedCanInitiatePasswordResetsPropertyToUserAccessLevels.resx">
+      <DependentUpon>201707032027140_AddedCanInitiatePasswordResetsPropertyToUserAccessLevels.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707091144230_FixedTypeOfAssessmentCriterionPropertyAssessedLevelMarkersOn.resx">
+      <DependentUpon>201707091144230_FixedTypeOfAssessmentCriterionPropertyAssessedLevelMarkersOn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707091213403_FixedTypeOfAssessmentCriterionPropertyMergeAssessedLevels.resx">
+      <DependentUpon>201707091213403_FixedTypeOfAssessmentCriterionPropertyMergeAssessedLevels.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708160156587_AddedCommentDateTimes.resx">
+      <DependentUpon>201708160156587_AddedCommentDateTimes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708161016390_AddedReceivesLockNotificationsToUserModel.resx">
+      <DependentUpon>201708161016390_AddedReceivesLockNotificationsToUserModel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708300047009_AddedSystemMessagesTable.resx">
+      <DependentUpon>201708300047009_AddedSystemMessagesTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709010029115_AddedPermissionsForSystemMessages.resx">
+      <DependentUpon>201709010029115_AddedPermissionsForSystemMessages.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709010031426_ExtendedPermissionsForSystemMessages.resx">
+      <DependentUpon>201709010031426_ExtendedPermissionsForSystemMessages.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\sd_ppt_background_watermark3.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_diagonals-thick_8_333333_40x40.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_glass_40_111111_1x400.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_glass_55_1c1c1c_1x400.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_highlight-hard_100_f9f9f9_1x100.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_highlight-hard_40_aaaaaa_1x100.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_highlight-soft_50_aaaaaa_1x100.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_inset-hard_45_cd0a0a_1x100.png" />
+    <Content Include="Content\themes\black-tie\images\ui-bg_inset-hard_55_ffeb80_1x100.png" />
+    <Content Include="Content\themes\black-tie\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\black-tie\images\ui-icons_4ca300_256x240.png" />
+    <Content Include="Content\themes\black-tie\images\ui-icons_bbbbbb_256x240.png" />
+    <Content Include="Content\themes\black-tie\images\ui-icons_ededed_256x240.png" />
+    <Content Include="Content\themes\black-tie\images\ui-icons_ffcf29_256x240.png" />
+    <Content Include="Content\themes\black-tie\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\black-tie\jquery-ui.black-tie.css" />
+    <Content Include="Content\themes\black-tie\jquery-ui.black-tie.min.css" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Content\themes\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="Content\themes\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\blitzer\jquery-ui.blitzer.css" />
+    <Content Include="Content\themes\blitzer\jquery-ui.blitzer.min.css" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Content\themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\cupertino\jquery-ui.cupertino.css" />
+    <Content Include="Content\themes\cupertino\jquery-ui.cupertino.min.css" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_highlight-hard_20_0972a5_1x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_highlight-soft_33_003147_1x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_highlight-soft_35_222222_1x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_highlight-soft_44_444444_1x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-bg_loop_25_000000_21x21.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Content\themes\dark-hive\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\dark-hive\jquery-ui.dark-hive.css" />
+    <Content Include="Content\themes\dark-hive\jquery-ui.dark-hive.min.css" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_diagonals-thick_15_0b3e6f_40x40.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_dots-medium_30_0b58a2_4x4.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_dots-small_20_333333_2x2.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_dots-small_30_a32d00_2x2.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_dots-small_40_00498f_2x2.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_flat_40_292929_40x100.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-bg_gloss-wave_20_111111_500x100.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-icons_00498f_256x240.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-icons_98d2fb_256x240.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-icons_9ccdfc_256x240.png" />
+    <Content Include="Content\themes\dot-luv\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\dot-luv\jquery-ui.dot-luv.css" />
+    <Content Include="Content\themes\dot-luv\jquery-ui.dot-luv.min.css" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_flat_55_994d53_40x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_flat_55_fafafa_40x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_gloss-wave_30_3d3644_500x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_highlight-soft_100_dcd9de_1x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_highlight-soft_100_eae6ea_1x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_highlight-soft_25_30273a_1x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-bg_highlight-soft_45_5f5964_1x100.png" />
+    <Content Include="Content\themes\eggplant\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\eggplant\images\ui-icons_734d99_256x240.png" />
+    <Content Include="Content\themes\eggplant\images\ui-icons_8d78a5_256x240.png" />
+    <Content Include="Content\themes\eggplant\images\ui-icons_a8a3ae_256x240.png" />
+    <Content Include="Content\themes\eggplant\images\ui-icons_ebccce_256x240.png" />
+    <Content Include="Content\themes\eggplant\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\eggplant\jquery-ui.eggplant.css" />
+    <Content Include="Content\themes\eggplant\jquery-ui.eggplant.min.css" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_diagonals-small_25_c5ddfc_40x40.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_diagonals-thick_20_e69700_40x40.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_diagonals-thick_22_1484e6_40x40.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_diagonals-thick_26_2293f7_40x40.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_flat_0_e69700_40x100.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_flat_0_e6b900_40x100.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_highlight-soft_100_f9f9f9_1x100.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-bg_inset-hard_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-icons_0a82eb_256x240.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-icons_0b54d5_256x240.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-icons_5fa5e3_256x240.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-icons_fcdd4a_256x240.png" />
+    <Content Include="Content\themes\excite-bike\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\excite-bike\jquery-ui.excite-bike.css" />
+    <Content Include="Content\themes\excite-bike\jquery-ui.excite-bike.min.css" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="Content\themes\flick\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="Content\themes\flick\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\flick\jquery-ui.flick.css" />
+    <Content Include="Content\themes\flick\jquery-ui.flick.min.css" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_diagonals-small_50_93c3cd_40x40.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_diagonals-small_50_ff3853_40x40.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_diagonals-small_75_ccd232_40x40.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_dots-medium_80_ffff38_4x4.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_dots-small_35_35414f_2x2.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_flat_75_ba9217_40x100.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-bg_white-lines_85_f7f7ba_40x100.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-icons_88a206_256x240.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-icons_c02669_256x240.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-icons_e1e463_256x240.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-icons_ffeb33_256x240.png" />
+    <Content Include="Content\themes\hot-sneaks\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\hot-sneaks\jquery-ui.hot-sneaks.css" />
+    <Content Include="Content\themes\hot-sneaks\jquery-ui.hot-sneaks.min.css" />
+    <Content Include="Content\themes\humanity\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_glass_100_f5f0e5_1x400.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_glass_25_cb842e_1x400.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_glass_70_ede4d4_1x400.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_highlight-hard_100_f4f0ec_1x100.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_highlight-hard_75_f5f5b5_1x100.png" />
+    <Content Include="Content\themes\humanity\images\ui-bg_inset-soft_100_f4f0ec_1x100.png" />
+    <Content Include="Content\themes\humanity\images\ui-icons_c47a23_256x240.png" />
+    <Content Include="Content\themes\humanity\images\ui-icons_cb672b_256x240.png" />
+    <Content Include="Content\themes\humanity\images\ui-icons_f08000_256x240.png" />
+    <Content Include="Content\themes\humanity\images\ui-icons_f35f07_256x240.png" />
+    <Content Include="Content\themes\humanity\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="Content\themes\humanity\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\humanity\jquery-ui.humanity.css" />
+    <Content Include="Content\themes\humanity\jquery-ui.humanity.min.css" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_diagonals-small_0_aaaaaa_40x40.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_diagonals-thick_15_444444_40x40.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_diagonals-thick_95_ffdc2e_40x40.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_glass_55_fbf5d0_1x400.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_highlight-hard_30_285c00_1x100.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_highlight-soft_33_3a8104_1x100.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_highlight-soft_50_4eb305_1x100.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_highlight-soft_60_4ca20b_1x100.png" />
+    <Content Include="Content\themes\le-frog\images\ui-bg_inset-soft_10_285c00_1x100.png" />
+    <Content Include="Content\themes\le-frog\images\ui-icons_4eb305_256x240.png" />
+    <Content Include="Content\themes\le-frog\images\ui-icons_72b42d_256x240.png" />
+    <Content Include="Content\themes\le-frog\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\le-frog\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\le-frog\jquery-ui.le-frog.css" />
+    <Content Include="Content\themes\le-frog\jquery-ui.le-frog.min.css" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_glass_15_5f391b_1x400.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_gloss-wave_20_1c160d_500x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_gloss-wave_25_453326_500x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_gloss-wave_30_44372c_500x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_highlight-soft_20_201913_1x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_highlight-soft_20_619226_1x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-bg_inset-soft_10_201913_1x100.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-icons_9bcc60_256x240.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-icons_add978_256x240.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-icons_e3ddc9_256x240.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-icons_f1fd86_256x240.png" />
+    <Content Include="Content\themes\mint-choc\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\mint-choc\jquery-ui.mint-choc.css" />
+    <Content Include="Content\themes\mint-choc\jquery-ui.mint-choc.min.css" />
+    <Content Include="Content\themes\overcast\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="Content\themes\overcast\images\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="Content\themes\overcast\images\ui-icons_3383bb_256x240.png" />
+    <Content Include="Content\themes\overcast\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\overcast\images\ui-icons_70b2e1_256x240.png" />
+    <Content Include="Content\themes\overcast\images\ui-icons_999999_256x240.png" />
+    <Content Include="Content\themes\overcast\images\ui-icons_fbc856_256x240.png" />
+    <Content Include="Content\themes\overcast\jquery-ui.overcast.css" />
+    <Content Include="Content\themes\overcast\jquery-ui.overcast.min.css" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_10_eceadf_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_10_f8f7f6_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_15_eceadf_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_15_f7f3de_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_15_ffffff_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_65_654b24_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-bg_fine-grain_68_b83400_60x60.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-icons_3572ac_256x240.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-icons_8c291d_256x240.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-icons_b83400_256x240.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-icons_fbdb93_256x240.png" />
+    <Content Include="Content\themes\pepper-grinder\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\pepper-grinder\jquery-ui.pepper-grinder.css" />
+    <Content Include="Content\themes\pepper-grinder\jquery-ui.pepper-grinder.min.css" />
+    <Content Include="Content\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\themes\redmond\jquery-ui.redmond.css" />
+    <Content Include="Content\themes\redmond\jquery-ui.redmond.min.css" />
+    <Content Include="Content\themes\sec\images\ui-bg_glass_75_afdfe5_1x400.png" />
+    <Content Include="Content\themes\sec\images\ui-bg_glass_85_afdfe5_1x400.png" />
+    <Content Include="Content\themes\sec\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\sec\images\ui-bg_gloss-wave_55_00B0D8_500x100.png" />
+    <Content Include="Content\themes\sec\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\themes\sec\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\sec\images\ui-icons_00B0D8_256x240.png" />
+    <Content Include="Content\themes\sec\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\sec\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\sec\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\themes\sec\jquery-ui.structure.css" />
+    <Content Include="Content\themes\sec\jquery-ui.structure.min.css" />
+    <Content Include="Content\themes\sec\jquery-ui.theme.css" />
+    <Content Include="Content\themes\sec\jquery-ui.theme.min.css" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\smoothness\jquery-ui.smoothness.css" />
+    <Content Include="Content\themes\smoothness\jquery-ui.smoothness.min.css" />
+    <Content Include="Content\themes\south-street\images\ui-bg_glass_55_fcf0ba_1x400.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_gloss-wave_100_ece8da_500x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_highlight-hard_100_f5f3e5_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_highlight-hard_100_fafaf4_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_highlight-hard_15_459e00_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_highlight-hard_95_cccccc_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_highlight-soft_25_67b021_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_highlight-soft_95_ffedad_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-bg_inset-soft_15_2b2922_1x100.png" />
+    <Content Include="Content\themes\south-street\images\ui-icons_808080_256x240.png" />
+    <Content Include="Content\themes\south-street\images\ui-icons_847e71_256x240.png" />
+    <Content Include="Content\themes\south-street\images\ui-icons_8DC262_256x240.png" />
+    <Content Include="Content\themes\south-street\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\south-street\images\ui-icons_eeeeee_256x240.png" />
+    <Content Include="Content\themes\south-street\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\south-street\jquery-ui.south-street.css" />
+    <Content Include="Content\themes\south-street\jquery-ui.south-street.min.css" />
+    <Content Include="Content\themes\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\themes\start\jquery-ui.start.css" />
+    <Content Include="Content\themes\start\jquery-ui.start.min.css" />
+    <Content Include="Content\themes\sunny\images\ui-bg_diagonals-medium_20_d34d17_40x40.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_gloss-wave_45_817865_500x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_gloss-wave_60_fece2f_500x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_gloss-wave_70_ffdd57_500x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_gloss-wave_90_fff9e5_500x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_highlight-soft_100_feeebd_1x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-bg_inset-soft_30_ffffff_1x100.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_3d3d3d_256x240.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_bd7b00_256x240.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_d19405_256x240.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_eb990f_256x240.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_ed9f26_256x240.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_fadc7a_256x240.png" />
+    <Content Include="Content\themes\sunny\images\ui-icons_ffe180_256x240.png" />
+    <Content Include="Content\themes\sunny\jquery-ui.sunny.css" />
+    <Content Include="Content\themes\sunny\jquery-ui.sunny.min.css" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_diamond_10_4f4221_10x8.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_diamond_20_372806_10x8.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_diamond_25_675423_10x8.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_diamond_25_d5ac5d_10x8.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_diamond_8_261803_10x8.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_diamond_8_443113_10x8.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_flat_75_ddd4b0_40x100.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_070603_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_e8e2b5_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_e9cd86_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_efec9f_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_f2ec64_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_f9f2bd_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="Content\themes\swanky-purse\jquery-ui.swanky-purse.css" />
+    <Content Include="Content\themes\swanky-purse\jquery-ui.swanky-purse.min.css" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_diagonals-small_50_262626_40x40.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_flat_0_303030_40x100.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_flat_0_4c4c4c_40x100.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_glass_40_0a0a0a_1x400.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_glass_55_f1fbe5_1x400.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_glass_60_000000_1x400.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_gloss-wave_55_000000_500x100.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_gloss-wave_85_9fda58_500x100.png" />
+    <Content Include="Content\themes\trontastic\images\ui-bg_gloss-wave_95_f6ecd5_500x100.png" />
+    <Content Include="Content\themes\trontastic\images\ui-icons_000000_256x240.png" />
+    <Content Include="Content\themes\trontastic\images\ui-icons_1f1f1f_256x240.png" />
+    <Content Include="Content\themes\trontastic\images\ui-icons_9fda58_256x240.png" />
+    <Content Include="Content\themes\trontastic\images\ui-icons_b8ec79_256x240.png" />
+    <Content Include="Content\themes\trontastic\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\trontastic\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\trontastic\jquery-ui.trontastic.css" />
+    <Content Include="Content\themes\trontastic\jquery-ui.trontastic.min.css" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\jquery-ui.ui-darkness.css" />
+    <Content Include="Content\themes\ui-darkness\jquery-ui.ui-darkness.min.css" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui.ui-lightness.css" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui.ui-lightness.min.css" />
+    <Content Include="Content\themes\vader\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_gloss-wave_16_121212_500x100.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_highlight-hard_15_888888_1x100.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_highlight-hard_55_555555_1x100.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_highlight-soft_35_adadad_1x100.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_highlight-soft_60_dddddd_1x100.png" />
+    <Content Include="Content\themes\vader\images\ui-bg_inset-soft_15_121212_1x100.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_666666_256x240.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_aaaaaa_256x240.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_bbbbbb_256x240.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_c98000_256x240.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\vader\images\ui-icons_f29a00_256x240.png" />
+    <Content Include="Content\themes\vader\jquery-ui.vader.css" />
+    <Content Include="Content\themes\vader\jquery-ui.vader.min.css" />
+    <Content Include="Images\placemark_circle.png" />
+    <Content Include="Images\placemark_circle_highlight.png" />
+    <Content Include="Images\placemark_circle_shadow.png" />
+    <Content Include="Images\px128\checked-128.png" />
+    <Content Include="Images\px128\comments-128.png" />
+    <Content Include="Images\px128\deployment-128.png" />
+    <Content Include="Images\px128\calculationfilters-128.png" />
+    <Content Include="Images\px128\holidays-128.png" />
+    <Content Include="Images\px128\loading_128x128.gif" />
+    <Content Include="Images\px128\measurement-metrics-128.png" />
+    <Content Include="Images\px128\measurement-views-128.png" />
+    <Content Include="Images\px128\record-128.png" />
+    <Content Include="Images\px128\useraccesslevels-128.png" />
+    <Content Include="Images\px128\users-128.png" />
+    <Content Include="Images\px128\variations-128.png" />
+    <Content Include="Images\px128\workinghours-128.png" />
+    <Content Include="Images\px128\monitorlocations-128.png" />
+    <Content Include="Images\px128\countries-128.png" />
+    <Content Include="Images\px128\documents-128.png" />
+    <Content Include="Images\px128\contacts-128.png" />
+    <Content Include="Images\loading.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\px128\assessments-128.png" />
+    <Content Include="Images\px128\measurements-128.png" />
+    <Content Include="Images\px128\monitors-128.png" />
+    <Content Include="Images\px128\organisations-128.png" />
+    <Content Include="Images\px128\upload-128.png" />
+    <Content Include="Images\px16\add-16.png" />
+    <Content Include="Images\px16\checked-16.png" />
+    <Content Include="Images\px16\delete-16.png" />
+    <Content Include="Images\px16\details-16.png" />
+    <Content Include="Images\px16\down-16.png" />
+    <Content Include="Images\px16\edit-16.png" />
+    <Content Include="Images\px16\left-16.png" />
+    <Content Include="Images\px16\loading_16x16.gif" />
+    <Content Include="Images\px16\remove-16.png" />
+    <Content Include="Images\px16\reset-16.png" />
+    <Content Include="Images\px16\right-16.png" />
+    <Content Include="Images\px16\types-16.png" />
+    <Content Include="Images\px16\up-16.png" />
+    <Content Include="Images\px16\variations-16.png" />
+    <Content Include="Images\px32\add-32.png" />
+    <Content Include="Images\px32\checked-32.png" />
+    <Content Include="Images\px32\countries-32.png" />
+    <Content Include="Images\px32\create-32.png" />
+    <Content Include="Images\px32\delete-32.png" />
+    <Content Include="Images\px32\details-32.png" />
+    <Content Include="Images\px32\documents-32.png" />
+    <Content Include="Images\px32\down-32.png" />
+    <Content Include="Images\px32\edit-32.png" />
+    <Content Include="Images\px32\calculationfilters-32.png" />
+    <Content Include="Images\px32\left-32.png" />
+    <Content Include="Images\px32\loading_32x32.gif" />
+    <Content Include="Images\px32\measurement-metrics-32.png" />
+    <Content Include="Images\px32\measurement-views-32.png" />
+    <Content Include="Images\px32\projects-32.png" />
+    <Content Include="Images\px32\record-32.png" />
+    <Content Include="Images\px32\remove-32.png" />
+    <Content Include="Images\px32\reset-32.png" />
+    <Content Include="Images\px32\right-32.png" />
+    <Content Include="Images\px32\types-32.png" />
+    <Content Include="Images\px32\up-32.png" />
+    <Content Include="Images\px32\users-32.png" />
+    <Content Include="Images\px32\variations-32.png" />
+    <Content Include="Images\px64\assessments-64.png" />
+    <Content Include="Images\px64\checked-64.png" />
+    <Content Include="Images\px64\contacts-64.png" />
+    <Content Include="Images\px64\countries-64.png" />
+    <Content Include="Images\px64\create-64.png" />
+    <Content Include="Images\px64\deployment-64.png" />
+    <Content Include="Images\px64\details-64.png" />
+    <Content Include="Images\px64\documents-64.png" />
+    <Content Include="Images\px64\calculationfilters-64.png" />
+    <Content Include="Images\px64\down-64.png" />
+    <Content Include="Images\px64\holidays-64.png" />
+    <Content Include="Images\px64\left-64.png" />
+    <Content Include="Images\px64\loading_64x64.gif" />
+    <Content Include="Images\px64\measurement-metrics-64.png" />
+    <Content Include="Images\px64\measurement-views-64.png" />
+    <Content Include="Images\px64\record-64.png" />
+    <Content Include="Images\px64\remove-64.png" />
+    <Content Include="Images\px64\reset-64.png" />
+    <Content Include="Images\px64\right-64.png" />
+    <Content Include="Images\px64\types-64.png" />
+    <Content Include="Images\px64\up-64.png" />
+    <Content Include="Images\px64\useraccesslevels-64.png" />
+    <Content Include="Images\px64\users-64.png" />
+    <Content Include="Images\px64\variations-64.png" />
+    <Content Include="Images\px64\workinghours-64.png" />
+    <Content Include="Images\px64\measurements-64.png" />
+    <Content Include="Images\px64\monitors-64.png" />
+    <Content Include="Images\px64\organisations-64.png" />
+    <Content Include="Images\px64\projects-64.png" />
+    <Content Include="Images\px64\upload-64.png" />
+    <Content Include="Images\px64\comments-64.png" />
+    <Content Include="Images\px64\monitorlocations-64.png" />
+    <Content Include="Images\SD_PPT_Presentations.png" />
+    <Content Include="Images\px64\add-64.png" />
+    <Content Include="Images\px64\delete-64.png" />
+    <Content Include="Images\px64\edit-64.png" />
+    <Content Include="Images\px64\index-64.png" />
+    <Content Include="Images\southdowns_screen_logo_RGB_mobile.png" />
+    <Content Include="Images\southdowns_screen_logo_RGB_small.png" />
+    <Content Include="Images\px128\projects-128.png" />
+    <Content Include="Images\target.png" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\SEC Monitoring Data Website.pubxml" />
+    <None Include="My Project\PublishProfiles\secmon - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\secmon - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\SECMonitoring - FTP %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring - FTP %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring - FTP %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring - FTP %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\SECMonitoring - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\SECMonitoring - Web Deploy %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring - Web Deploy %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring - Web Deploy %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring - Web Deploy %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\SECMonitoring - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoring.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP %286%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP %287%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy %286%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy %287%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\secmonitoringsite.pubxml" />
+    <None Include="My Project\PublishProfiles\SECMonitoringWebsite - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\SECMonitoringWebsite - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite %289%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - FTP %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - FTP %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - FTP %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - Web Deploy %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - Web Deploy %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - Web Deploy %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns %286%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns - FTP %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %286%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %287%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %288%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - FTP %289%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns - Web Deploy %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %283%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %286%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %287%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %288%29.pubxml" />
+    <None Include="My Project\PublishProfiles\southdowns - Web Deploy %289%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns - Web Deploy.pubxml" />
+    <None Include="My Project\PublishProfiles\Southdowns.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="packages.config" />
+    <Content Include="Scripts\date.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-3d.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-all.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-more.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts-more.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\highcharts.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\canvas-tools.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-blue.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-green.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\dark-unica.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\gray.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid-light.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\grid.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\sand-signika.js" />
+    <Content Include="Scripts\Highcharts-4.0.1\js\themes\skies.js" />
+    <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.js" />
+    <Content Include="Scripts\jquery-1.7.min.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-3.0.0.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-3.0.0.min.js" />
+    <Content Include="Scripts\jquery.slides.js" />
+    <Content Include="Scripts\jquery.slides.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\markerwithlabel.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\OrganisationTypes\Index.vbhtml" />
+    <Content Include="Views\OrganisationTypes\Details.vbhtml" />
+    <Content Include="Views\OrganisationTypes\Create.vbhtml" />
+    <Content Include="Views\OrganisationTypes\Edit.vbhtml" />
+    <Content Include="Views\Organisations\Index.vbhtml" />
+    <Content Include="Views\Organisations\Details.vbhtml" />
+    <Content Include="Views\Organisations\Create.vbhtml" />
+    <Content Include="Views\Organisations\Edit.vbhtml" />
+    <Content Include="Views\Projects\Index.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MonitorLocationGeoCoords.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProjectGeoCoords.vbhtml" />
+    <Content Include="Views\Projects\Details.vbhtml" />
+    <Content Include="Views\Projects\Create.vbhtml" />
+    <Content Include="Views\Projects\Edit.vbhtml" />
+    <Content Include="Views\Contacts\Index.vbhtml" />
+    <Content Include="Views\Contacts\Details.vbhtml" />
+    <Content Include="Views\Contacts\Create.vbhtml" />
+    <Content Include="Views\Contacts\Edit.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\MonitorLocationGeoCoords.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Week.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Search.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PhoneNumber.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Month.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime-Local.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Color.cshtml" />
+    <Content Include="Views\MonitorLocations\Index.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details.vbhtml" />
+    <Content Include="Views\MonitorLocations\Create.vbhtml" />
+    <Content Include="Views\MonitorLocations\Edit.vbhtml" />
+    <Content Include="Views\Shared\SearchableIndexDTHeader.vbhtml" />
+    <Content Include="Views\Measurements\View_0.vbhtml" />
+    <Content Include="Views\Measurements\View_Graph.vbhtml" />
+    <Content Include="Views\Measurements\View_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\View_AssessmentGraphAndTable.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details_BasicDetails_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details_BasicDetails_Graph.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details_BasicDetails_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_BasicDetails_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_BasicDetails_Graph.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_BasicDetails_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_AssessedLevel.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_CriterionLevel.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_AssessedLevel_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_AssessedLevel_Series.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_CriterionLevel_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion_CriterionLevel_Series.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_AssessedLevel.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_AssessedLevel_Series.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_AssessedLevel_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_CriterionLevel.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_CriterionLevel_Series.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion_CriterionLevel_Table.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Create_CreateNew_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Create_CreateNew_Graph.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Create_CreateNew_Table.vbhtml" />
+    <Content Include="Views\Measurements\Upload_PPVLive.vbhtml" />
+    <Content Include="Views\MeasurementFiles\IndexAfterDeleteSuccess.vbhtml" />
+    <Content Include="Views\MeasurementFiles\IndexAfterDeleteFailure.vbhtml" />
+    <Content Include="Views\LogIn\ChangePassword.vbhtml" />
+    <Content Include="Views\LogIn\RequestNewPassword.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Index.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Index_BasicDetails.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Index_AssessmentCriteria.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_AssessedLevels.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_CriterionLevels.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_AssessedLevels_ChartSeries.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_AssessedLevels_TableColumn.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_CriterionLevels_ChartSeries.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Details_CriterionLevels_TableColumn.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_AssessedLevels.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_CriterionLevels.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_AssessedLevels_ChartSeries.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_AssessedLevels_TableColumn.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_CriterionLevels_ChartSeries.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Edit_CriterionLevels_TableColumn.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_AssessedLevels.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_AssessedLevels_ChartSeries.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_AssessedLevels_TableColumn.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_Assessment.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_CriterionLevels.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_CriterionLevels_ChartSeries.vbhtml" />
+    <Content Include="Views\AssessmentCriteria\Create_CriterionLevels_TableColumn.vbhtml" />
+    <Content Include="Views\Home\Index_SystemMessages.vbhtml" />
+    <Content Include="Views\Measurements\UploadResult.vbhtml" />
+    <Content Include="Views\Measurements\UploadResult_BasicDetails.vbhtml" />
+    <None Include="Views\Shared\SearchableIndexMTHeader.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Index.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Details.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Create.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Edit.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProjectGeoCoords.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Timespan.vbhtml" />
+    <Content Include="Views\MonitorLocations\Select.vbhtml">
+      <BrowseToURL>~/MonitorLocations/Choose/0</BrowseToURL>
+    </Content>
+    <Content Include="Views\Measurements\Upload.vbhtml" />
+    <Content Include="Views\Measurements\View.vbhtml" />
+    <Content Include="Views\Measurements\View_MeasurementsChart.vbhtml" />
+    <Content Include="Views\Measurements\View_DailyMeasurementsTable.vbhtml" />
+    <Content Include="Views\Projects\Details_MonitorLocations.vbhtml" />
+    <Content Include="Views\Projects\Details_MeasurementViews.vbhtml" />
+    <Content Include="Views\Projects\Details_AssessmentCriteria.vbhtml" />
+    <Content Include="Views\Projects\Details_WorkingHours.vbhtml" />
+    <Content Include="Views\Projects\Details_Contacts.vbhtml" />
+    <Content Include="Views\Projects\Details_Organisations.vbhtml" />
+    <Content Include="Views\Projects\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Projects\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\Projects\Edit_Contacts.vbhtml" />
+    <Content Include="Views\Projects\Edit_MeasurementViews.vbhtml" />
+    <Content Include="Views\Projects\Edit_MonitorLocations.vbhtml" />
+    <Content Include="Views\Projects\Edit_Organisations.vbhtml" />
+    <Content Include="Views\Projects\Edit_WorkingHours.vbhtml" />
+    <Content Include="Views\Projects\Edit_AssessmentCriteria.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\WorkingWeekViewModel.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details_AssessmentCriteria.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details_CurrentMonitor.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details_DeploymentRecords.vbhtml" />
+    <Content Include="Views\Monitors\Index.vbhtml" />
+    <Content Include="Views\Monitors\Details.vbhtml" />
+    <Content Include="Views\Monitors\Create.vbhtml" />
+    <Content Include="Views\Monitors\Edit.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details_Photos.vbhtml" />
+    <Content Include="Views\MonitorLocations\Details_CalibrationCertificates.vbhtml" />
+    <Content Include="Views\Monitors\Details_CalibrationCertificates.vbhtml" />
+    <Content Include="Views\Monitors\Details_DeploymentRecords.vbhtml" />
+    <Content Include="Views\Monitors\Details_Photos.vbhtml" />
+    <Content Include="Views\Monitors\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Color.cshtml" />
+    <Content Include="Views\Organisations\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Organisations\Details_Contacts.vbhtml" />
+    <Content Include="Views\Organisations\Details_Projects.vbhtml" />
+    <Content Include="Views\Organisations\Details_OwnedMonitors.vbhtml" />
+    <Content Include="Views\Organisations\Details_AuthoredDocuments.vbhtml" />
+    <Content Include="Views\Countries\Index.vbhtml" />
+    <Content Include="Views\Countries\Details.vbhtml" />
+    <Content Include="Views\Countries\Create.vbhtml" />
+    <Content Include="Views\Countries\Edit.vbhtml" />
+    <Content Include="Views\Countries\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Countries\Details_PublicHolidays.vbhtml" />
+    <Content Include="Views\Countries\Details_Projects.vbhtml" />
+    <Content Include="Views\DocumentTypes\Index.vbhtml" />
+    <Content Include="Views\DocumentTypes\Details.vbhtml" />
+    <Content Include="Views\DocumentTypes\Create.vbhtml" />
+    <Content Include="Views\DocumentTypes\Edit.vbhtml" />
+    <Content Include="Views\DocumentTypes\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\DocumentTypes\Details_Documents.vbhtml" />
+    <Content Include="Views\DocumentTypes\Details_UserAccessLevels.vbhtml" />
+    <Content Include="Views\DocumentTypes\Details_ParentDocumentTypes.vbhtml" />
+    <Content Include="Views\DocumentTypes\Details_ChildDocumentTypes.vbhtml" />
+    <Content Include="Views\OrganisationTypes\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\OrganisationTypes\Details_Organisations.vbhtml" />
+    <Content Include="Views\Contacts\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Contacts\Details_Projects.vbhtml" />
+    <Content Include="Views\Contacts\Details_ExcludedDocuments.vbhtml" />
+    <Content Include="Views\Contacts\Details_MeasurementFiles.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Index.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Details.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Create.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Edit.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Details_CalculationFilters.vbhtml" />
+    <Content Include="Views\CalculationFilters\Index.vbhtml" />
+    <Content Include="Views\CalculationFilters\Details.vbhtml" />
+    <Content Include="Views\CalculationFilters\Create.vbhtml" />
+    <Content Include="Views\CalculationFilters\Edit.vbhtml" />
+    <Content Include="Views\CalculationFilters\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\CalculationFilters\Details_DaysOfWeek.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Index.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Details.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Create.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Edit.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Details_ExcludedViews.vbhtml" />
+    <Content Include="Views\Projects\Index_Table.vbhtml" />
+    <Content Include="Views\Projects\Index_Map.vbhtml" />
+    <Content Include="Views\PublicHolidays\Create.vbhtml" />
+    <Content Include="Views\Countries\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\Countries\Edit_PublicHolidays.vbhtml" />
+    <Content Include="Views\Organisations\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\DocumentTypes\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\DocumentTypes\Edit_UserAccessLevels.vbhtml" />
+    <Content Include="Views\DocumentTypes\Edit_ParentDocumentTypes.vbhtml" />
+    <Content Include="Views\DocumentTypes\Edit_ChildDocumentTypes.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Edit_ExcludedViews.vbhtml" />
+    <Content Include="Views\CalculationFilters\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\CalculationFilters\Edit_DaysOfWeek.vbhtml" />
+    <Content Include="Views\Contacts\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\Contacts\Edit_Projects.vbhtml" />
+    <Content Include="Views\Contacts\Edit_ExcludedDocuments.vbhtml" />
+    <Content Include="Views\Monitors\Details_CurrentStatus.vbhtml" />
+    <Content Include="Views\Monitors\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\Monitors\Edit_Status.vbhtml" />
+    <Content Include="Views\Monitors\Edit_DeploymentRecords.vbhtml" />
+    <Content Include="Views\Monitors\Details_CurrentLocation.vbhtml" />
+    <Content Include="Views\Shared\Details_DR_NoiseSetting.vbhtml" />
+    <Content Include="Views\Shared\Details_DR_VibrationSetting.vbhtml" />
+    <Content Include="Views\Shared\Details_DR_AirQualitySetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Details.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\CreateForMonitor.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\EndDeployment.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\CreateForMonitor_BasicDetails.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\CreateForMonitor_MonitorSettings.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Create_MS_AirQualitySetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Create_MS_NoiseSetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Create_MS_VibrationSetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\EndDeployment_BasicDetails.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Details_MonitorSettings.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Details_MS_NoiseSetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Details_MS_VibrationSetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Details_MS_AirQualitySetting.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementViews\Index.vbhtml" />
+    <Content Include="Views\MeasurementViews\Details.vbhtml" />
+    <Content Include="Views\MeasurementViews\Create.vbhtml" />
+    <Content Include="Views\MeasurementViews\Edit.vbhtml" />
+    <Content Include="Views\MeasurementViews\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementViews\Details_CommentTypes.vbhtml" />
+    <Content Include="Views\MeasurementViews\Details_BD_ViewGroup.vbhtml" />
+    <Content Include="Views\MeasurementViews\Details_BD_VG_SequenceSetting.vbhtml" />
+    <Content Include="Views\MeasurementViews\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementViews\Edit_CommentTypes.vbhtml" />
+    <Content Include="Views\MeasurementViews\Edit_BD_ViewGroup.vbhtml" />
+    <Content Include="Views\MeasurementViews\Edit_BD_VG_SequenceSetting.vbhtml" />
+    <Content Include="Views\MeasurementViewGroups\Create.vbhtml" />
+    <Content Include="Views\MeasurementViewGroups\Edit.vbhtml" />
+    <Content Include="Views\MeasurementViewSequenceSettings\Create.vbhtml" />
+    <Content Include="Views\MeasurementViewSequenceSettings\Edit.vbhtml" />
+    <Content Include="Views\MonitorLocations\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\MonitorLocations\Edit_AssessmentCriteria.vbhtml" />
+    <Content Include="Views\MonitorLocations\Edit_DeploymentRecords.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\CreateForMonitorLocation.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\CreateForMonitorLocation_BasicDetails.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Create_MS_GeneralSettings.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\CreateForMonitorLocation_MonitorSettings.vbhtml" />
+    <Content Include="Views\Measurements\View_GraphAndTable.vbhtml" />
+    <Content Include="Views\Measurements\UpdateView.vbhtml" />
+    <Content Include="Views\Measurements\View_DynamicMeasurementsTable.vbhtml" />
+    <Content Include="Views\LogIn\Index.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Create.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details_Criteria.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Details_Criteria_MonitorLocationCriteria.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_MonitorLocationCriteria.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CreateCriterion.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_EditCriterion.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Edit_Criteria_CopyCriteria.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Create_CreateNew.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\Create_CopyExisting.vbhtml" />
+    <Content Include="Views\CalculationFilters\Create_BasicDetails.vbhtml" />
+    <Content Include="Views\CalculationFilters\Create_DaysofWeek.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Details.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Create.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Edit.vbhtml" />
+    <Content Include="Views\StandardWeeklyWorkingHours\Edit.vbhtml" />
+    <Content Include="Views\StandardWeeklyWorkingHours\Edit_WorkingHours.vbhtml" />
+    <Content Include="Views\StandardWeeklyWorkingHours\Edit_MeasurementViews.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\EditorTemplates\SelectableMeasurementView.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Create_BasicDetails.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Create_MeasurementViews.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Edit_MeasurementViews.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\VariedWeeklyWorkingHours\Details_MeasurementViews.vbhtml" />
+    <Content Include="Views\Projects\Edit_WH_Variations.vbhtml" />
+    <Content Include="Views\Documents\Index.vbhtml" />
+    <Content Include="Views\Documents\Details.vbhtml" />
+    <Content Include="Views\Documents\Create.vbhtml" />
+    <Content Include="Views\Documents\Edit.vbhtml" />
+    <Content Include="Views\Documents\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\Documents\Edit_Projects.vbhtml" />
+    <Content Include="Views\Documents\Edit_Monitors.vbhtml" />
+    <Content Include="Views\Documents\Edit_MonitorLocations.vbhtml" />
+    <Content Include="Views\Documents\Edit_ExcludedContacts.vbhtml" />
+    <Content Include="Views\Documents\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Documents\Details_Projects.vbhtml" />
+    <Content Include="Views\Documents\Details_Monitors.vbhtml" />
+    <Content Include="Views\Documents\Details_MonitorLocations.vbhtml" />
+    <Content Include="Views\Documents\Details_ExcludedContacts.vbhtml" />
+    <Content Include="Views\Shared\PhotosViewer.vbhtml" />
+    <Content Include="Views\Shared\TestView.vbhtml" />
+    <Content Include="Views\Measurements\Upload_RionLeqLiveWebsystem.vbhtml" />
+    <Content Include="Views\Measurements\Upload_RionRCDS.vbhtml" />
+    <Content Include="Views\Measurements\Upload_SPLTrack.vbhtml" />
+    <Content Include="Views\Measurements\Upload_Vibra.vbhtml" />
+    <Content Include="Views\Measurements\Upload_SigicomVibration.vbhtml" />
+    <Content Include="Views\Measurements\Upload_Redbox.vbhtml" />
+    <Content Include="Views\Measurements\Upload_Osiris.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\MetricMapping.vbhtml" />
+    <Content Include="Views\MeasurementFiles\Index.vbhtml" />
+    <Content Include="Views\MeasurementFiles\Details.vbhtml" />
+    <Content Include="Views\MeasurementFiles\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\MeasurementFiles\Details_Table.vbhtml" />
+    <Content Include="Views\MeasurementFiles\Details_Graph.vbhtml" />
+    <Content Include="Views\MeasurementComments\Index.vbhtml" />
+    <Content Include="Views\MeasurementComments\UpdateCommentIndexView.vbhtml" />
+    <Content Include="Views\MeasurementComments\Create.vbhtml" />
+    <Content Include="Views\MeasurementComments\Index_CommentsTable.vbhtml" />
+    <Content Include="Views\AssessmentCriterionGroups\View.vbhtml" />
+    <Content Include="Views\Documents\Index_Table.vbhtml" />
+    <Content Include="Views\CalculationFilters\Index_Table.vbhtml" />
+    <Content Include="Views\Contacts\Index_Table.vbhtml" />
+    <Content Include="Views\MonitorLocations\Index_Table.vbhtml" />
+    <Content Include="Views\Monitors\Index_Table.vbhtml" />
+    <Content Include="Views\Organisations\Index_Table.vbhtml" />
+    <Content Include="Views\Organisations\Edit_Projects.vbhtml" />
+    <Content Include="Views\Shared\SearchableIndexHeader.vbhtml" />
+    <Content Include="Views\Countries\Index_Table.vbhtml" />
+    <Content Include="Views\DocumentTypes\Index_Table.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Index_Table.vbhtml" />
+    <Content Include="Views\MeasurementViews\Index_Table.vbhtml" />
+    <Content Include="Views\OrganisationTypes\Index_Table.vbhtml" />
+    <Content Include="Views\MeasurementFiles\Index_Table.vbhtml" />
+    <Content Include="Views\MeasurementMetrics\Index_Table.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Edit_ExcludedAssessmentCriteria.vbhtml" />
+    <Content Include="Views\MeasurementCommentTypes\Details_ExcludedCriteria.vbhtml" />
+    <Content Include="Views\MeasurementViews\Details_Projects.vbhtml" />
+    <Content Include="Views\MeasurementViews\Edit_Projects.vbhtml" />
+    <Content Include="Views\Measurements\Upload_SpreadsheetTemplate.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Index.vbhtml" />
+    <Content Include="Views\MonitorDeploymentRecords\Index_Table.vbhtml" />
+    <Content Include="Views\Projects\Index_v1.vbhtml" />
+    <Content Include="Views\MonitorLocations\Select_Table.vbhtml" />
+    <Content Include="Views\MonitorLocations\Select_Map.vbhtml" />
+    <Content Include="Views\Home\Index_HomePageButton.vbhtml" />
+    <Content Include="Views\Shared\AlphabeticalIndexHeader.vbhtml" />
+    <Content Include="Views\Shared\NavigationButtons.vbhtml" />
+    <Content Include="Views\MonitorLocations\Edit_Photos.vbhtml" />
+    <Content Include="Views\Shared\DeleteObjectConfirmation.vbhtml" />
+    <Content Include="Views\Shared\TabsView.vbhtml" />
+    <Content Include="Views\Shared\SearchableIndexMTPrMLHeader.vbhtml" />
+    <Content Include="Views\Shared\SearchableIndexMFHeader.vbhtml" />
+    <Content Include="Views\Users\Create.vbhtml" />
+    <Content Include="Views\Users\Details.vbhtml" />
+    <Content Include="Views\Users\Edit.vbhtml" />
+    <Content Include="Views\Users\Index.vbhtml" />
+    <Content Include="Views\Users\Index_Table.vbhtml" />
+    <Content Include="Views\Users\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\Users\Edit_BasicDetails.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Index_Table.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Details_BasicDetails.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Details_Users.vbhtml" />
+    <Content Include="Views\UserAccessLevels\Edit_BasicDetails.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.vbhtml" />
+    <Content Include="Views\Home\About.vbhtml" />
+    <Content Include="Views\Home\Contact.vbhtml" />
+    <Content Include="Views\Home\Index.vbhtml" />
+    <Content Include="Views\Shared\Error.vbhtml" />
+    <Content Include="Views\Shared\_LoginPartial.vbhtml" />
+    <Content Include="Views\Shared\_Layout.vbhtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\App_Data\" />
+    <Folder Include="Content\Documents\" />
+    <Folder Include="Content\MeasurementFiles\TempFiles\" />
+    <Folder Include="Models\Database\old\" />
+    <Folder Include="Views\Projects\DisplayTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libSEC\libSEC.vbproj">
+      <Project>{4960c0fc-ba57-41ff-989a-fac440809017}</Project>
+      <Name>libSEC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SEC Monitoring Data Website.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>SEC Monitoring Data Website.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50377/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
