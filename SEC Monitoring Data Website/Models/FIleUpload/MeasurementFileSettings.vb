@@ -187,9 +187,10 @@ Namespace MeasurementFileSettings
             Return Date.FromOADate(dateOA + timeOA)
 
         End Function
-        Public Function getDuration(DurationString As String) As Double
+        Public Overridable Function getDuration(DurationString As String) As Double
 
-            Dim durationOA = Date.ParseExact(DurationString, DurationFieldFormat, CultureInfo.InvariantCulture).ToOADate
+            Dim durationOA = Date.ParseExact(DurationString, DurationFieldFormat,
+                                             CultureInfo.InvariantCulture).ToOADate
             durationOA = durationOA - Int(durationOA)
             Return durationOA
 
@@ -410,7 +411,7 @@ Namespace MeasurementFileSettings
             If UnderloadField <> "" Then icolUnderload = Array.IndexOf(ColumnHeaders, UnderloadField)
 
         End Sub
-        Protected Overridable Sub getTextFileRowStartDateTimesAndDurations(pathToFile As String)
+        Public Overridable Sub getTextFileRowStartDateTimesAndDurations(pathToFile As String)
 
             Dim sr As New StreamReader(pathToFile)
             readTextFileHeader(sr)
@@ -471,7 +472,7 @@ Namespace MeasurementFileSettings
             End If
 
         End Sub
-        Protected Overridable Function readTextFile(pathToFile As String) As Boolean
+        Public Overridable Function readTextFile(pathToFile As String) As Boolean
 
             Try
 

@@ -527,7 +527,7 @@
     <Compile Include="Models\MeasurementFileSettings\RionRCDSFileSettings.vb" />
     <Compile Include="Models\MeasurementFileSettings\SigicomVibrationFileSettings.vb" />
     <Compile Include="Models\MeasurementFileSettings\SPLTrackFileSettings.vb" />
-    <Compile Include="Models\MeasurementFileSettings\SpreadsheetTemplateFileSettings.vb" />
+    <Compile Include="Models\MeasurementFileSettings\BaseClasses\SpreadsheetTemplateFileSettings.vb" />
     <Compile Include="Models\MeasurementFileSettings\VibraFileSettings.vb" />
     <Compile Include="Models\MeasurementFileSettings\VibrationSpreadsheetTemplateFileSettings.vb" />
     <Compile Include="Models\MeasurementsDAL.vb" />

@@ -426,17 +426,16 @@ Namespace SEC_Monitoring_Data_Website
                 .AddDaylightSavingsHourCount = 1,
                 .DaylightSavingsBorderDate = Date.Today,
                 .DaylightSavingsBorderTime = Date.Today.AddHours(1),
+                .UploadOsirisViewModel = getUploadOsirisViewModel(mets),
+                .UploadPPVLiveViewModel = getUploadPPVLiveViewModel(mets),
+                .UploadRedboxViewModel = getUploadRedboxViewModel(mets),
                 .UploadRionLeqLiveWebsystemViewModel = getUploadRionLeqLiveWebsystemViewModel(mets),
                 .UploadRionRCDSViewModel = getUploadRionRCDSViewModel(mets),
-                .UploadSPLTrackViewModel = getUploadSPLTrackViewModel(mets),
-                .UploadRedboxViewModel = getUploadRedboxViewModel(mets),
                 .UploadSigicomVibrationViewModel = getUploadSigicomVibrationViewModel(mets),
-                .UploadVibraViewModel = getUploadVibraViewModel(mets),
-                .UploadOsirisViewModel = getUploadOsirisViewModel(mets),
+                .UploadSPLTrackViewModel = getUploadSPLTrackViewModel(mets),
                 .UploadSpreadsheetTemplateViewModel = getUploadSpreadsheetTemplateViewModel(),
-                .UploadPPVLiveViewModel = getUploadPPVLiveViewModel(mets)
+                .UploadVibraViewModel = getUploadVibraViewModel(mets)
             }
-
 
             Return View(umvm)
 
@@ -516,36 +515,36 @@ Namespace SEC_Monitoring_Data_Website
             Dim fs As New MeasurementFileSettings.MeasurementFileSettings
             Select Case MeasurementFileType.FileTypeName
 
-                Case "Rion Leq Live Websystem"
-                    fs = New MeasurementFileSettings.RionLeqLiveWebsystemFileSettings(MeasurementsDAL)
-                    fs.MetricMappings = ViewModel.UploadRionLeqLiveWebsystemViewModel.getMappingDictionary(MeasurementsDAL)
-                Case "Rion RCDS"
-                    fs = New MeasurementFileSettings.RionRCDSFileSettings(MeasurementsDAL)
-                    fs.MetricMappings = ViewModel.UploadRionRCDSViewModel.getMappingDictionary(MeasurementsDAL)
-                Case "SPLTrack"
-                    fs = New MeasurementFileSettings.SPLTrackFileSettings(MeasurementsDAL)
-                    fs.MetricMappings = ViewModel.UploadSPLTrackViewModel.getMappingDictionary(MeasurementsDAL)
-                Case "Vibra"
-                    fs = New MeasurementFileSettings.VibraFileSettings(MeasurementsDAL)
-                    fs.MetricMappings = ViewModel.UploadVibraViewModel.getMappingDictionary(MeasurementsDAL)
-                Case "Sigicom Vibration"
-                    fs = New MeasurementFileSettings.SigicomVibrationFileSettings(MeasurementsDAL)
-                    fs.MetricMappings = ViewModel.UploadSigicomVibrationViewModel.getMappingDictionary(MeasurementsDAL)
-                Case "Redbox"
-                    fs = New MeasurementFileSettings.RedboxFileSettings(MeasurementsDAL)
-                    fs.MetricMappings = ViewModel.UploadRedboxViewModel.getMappingDictionary(MeasurementsDAL)
                 Case "Osiris"
                     fs = New MeasurementFileSettings.OsirisFileSettings(MeasurementsDAL)
                     fs.MetricMappings = ViewModel.UploadOsirisViewModel.getMappingDictionary(MeasurementsDAL)
                 Case "PPV Live"
                     fs = New MeasurementFileSettings.PPVLiveFileSettings(MeasurementsDAL)
                     fs.MetricMappings = ViewModel.UploadPPVLiveViewModel.getMappingDictionary(MeasurementsDAL)
+                Case "Redbox"
+                    fs = New MeasurementFileSettings.RedboxFileSettings(MeasurementsDAL)
+                    fs.MetricMappings = ViewModel.UploadRedboxViewModel.getMappingDictionary(MeasurementsDAL)
+                Case "Rion Leq Live Websystem"
+                    fs = New MeasurementFileSettings.RionLeqLiveWebsystemFileSettings(MeasurementsDAL)
+                    fs.MetricMappings = ViewModel.UploadRionLeqLiveWebsystemViewModel.getMappingDictionary(MeasurementsDAL)
+                Case "Rion RCDS"
+                    fs = New MeasurementFileSettings.RionRCDSFileSettings(MeasurementsDAL)
+                    fs.MetricMappings = ViewModel.UploadRionRCDSViewModel.getMappingDictionary(MeasurementsDAL)
+                Case "Sigicom Vibration"
+                    fs = New MeasurementFileSettings.SigicomVibrationFileSettings(MeasurementsDAL)
+                    fs.MetricMappings = ViewModel.UploadSigicomVibrationViewModel.getMappingDictionary(MeasurementsDAL)
+                Case "SPLTrack"
+                    fs = New MeasurementFileSettings.SPLTrackFileSettings(MeasurementsDAL)
+                    fs.MetricMappings = ViewModel.UploadSPLTrackViewModel.getMappingDictionary(MeasurementsDAL)
                 Case "Spreadsheet Template (Noise)"
                     fs = New MeasurementFileSettings.NoiseSpreadsheetTemplateFileSettings(MeasurementsDAL)
                 Case "Spreadsheet Template (Vibration)"
                     fs = New MeasurementFileSettings.VibrationSpreadsheetTemplateFileSettings(MeasurementsDAL)
                 Case "Spreadsheet Template (Air Quality, Dust and Meteorological)"
                     fs = New MeasurementFileSettings.AirQualitySpreadsheetTemplateFileSettings(MeasurementsDAL)
+                Case "Vibra"
+                    fs = New MeasurementFileSettings.VibraFileSettings(MeasurementsDAL)
+                    fs.MetricMappings = ViewModel.UploadVibraViewModel.getMappingDictionary(MeasurementsDAL)
                 Case Else
 
                     Return Nothing

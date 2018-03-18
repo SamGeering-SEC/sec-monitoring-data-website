@@ -2383,17 +2383,16 @@ Public Class UploadMeasurementsViewModel
     Property MonitorLocationId As Integer
     Property ProjectId As Integer
 
-
-    ' Sub ViewModels
-    Public Property UploadRionLeqLiveWebsystemViewModel As UploadRionLeqLiveWebsystemViewModel
-    Public Property UploadRionRCDSViewModel As UploadRionRCDSViewModel
-    Public Property UploadSPLTrackViewModel As UploadSPLTrackViewModel
-    Public Property UploadVibraViewModel As UploadVibraViewModel
-    Public Property UploadSigicomVibrationViewModel As UploadSigicomVibrationViewModel
-    Public Property UploadRedboxViewModel As UploadRedboxViewModel
+    ' Sub-ViewModels
     Public Property UploadOsirisViewModel As UploadOsirisViewModel
     Public Property UploadPPVLiveViewModel As UploadPPVLiveViewModel
+    Public Property UploadRedboxViewModel As UploadRedboxViewModel
+    Public Property UploadRionLeqLiveWebsystemViewModel As UploadRionLeqLiveWebsystemViewModel
+    Public Property UploadRionRCDSViewModel As UploadRionRCDSViewModel
     Public Property UploadSpreadsheetTemplateViewModel As UploadSpreadsheetTemplateViewModel
+    Public Property UploadSigicomVibrationViewModel As UploadSigicomVibrationViewModel
+    Public Property UploadSPLTrackViewModel As UploadSPLTrackViewModel
+    Public Property UploadVibraViewModel As UploadVibraViewModel
 
 
     ' Special Items
@@ -2433,6 +2432,41 @@ End Class
 
 #Region "Upload File View Models"
 
+#Region "Air Quality"
+
+Public Class UploadOsirisViewModel
+
+    Public Property TotalParticlesMapping As MetricMapping
+    Public Property PM10ParticlesMapping As MetricMapping
+    Public Property PM2point5ParticlesMapping As MetricMapping
+    Public Property PM1ParticlesMapping As MetricMapping
+    Public Property TemperatureMapping As MetricMapping
+    Public Property HumidityMapping As MetricMapping
+    Public Property WindSpeedMapping As MetricMapping
+    Public Property WindDirectionMapping As MetricMapping
+
+
+    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
+
+        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
+
+        If TotalParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(TotalParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(TotalParticlesMapping.MetricId)))
+        If PM10ParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(PM10ParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PM10ParticlesMapping.MetricId)))
+        If PM2point5ParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(PM2point5ParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PM2point5ParticlesMapping.MetricId)))
+        If PM1ParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(PM1ParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PM1ParticlesMapping.MetricId)))
+        If TemperatureMapping.MetricId IsNot Nothing Then mapDict.Add(TemperatureMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(TemperatureMapping.MetricId)))
+        If HumidityMapping.MetricId IsNot Nothing Then mapDict.Add(HumidityMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(HumidityMapping.MetricId)))
+        If WindSpeedMapping.MetricId IsNot Nothing Then mapDict.Add(WindSpeedMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(WindSpeedMapping.MetricId)))
+        If WindDirectionMapping.MetricId IsNot Nothing Then mapDict.Add(WindDirectionMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(WindDirectionMapping.MetricId)))
+
+        Return mapDict
+
+    End Function
+
+End Class
+
+#End Region
+
 #Region "Noise"
 
 Public Class UploadRionLeqLiveWebsystemViewModel
@@ -2467,7 +2501,6 @@ Public Class UploadRionLeqLiveWebsystemViewModel
     End Function
 
 End Class
-
 Public Class UploadRionRCDSViewModel
 
     Public Property LAeqMapping As MetricMapping
@@ -2529,101 +2562,6 @@ End Class
 
 #Region "Vibration"
 
-Public Class UploadVibraViewModel
-
-    Public Property PPVXChannelMapping As MetricMapping
-    Public Property PPVYChannelMapping As MetricMapping
-    Public Property PPVZChannelMapping As MetricMapping
-    Public Property DominantFrequencyComponentXChannelMapping As MetricMapping
-    Public Property DominantFrequencyComponentYChannelMapping As MetricMapping
-    Public Property DominantFrequencyComponentZChannelMapping As MetricMapping
-
-    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
-
-        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
-
-        If PPVXChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVXChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVXChannelMapping.MetricId)))
-        If PPVYChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVYChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVYChannelMapping.MetricId)))
-        If PPVZChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVZChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVZChannelMapping.MetricId)))
-        If DominantFrequencyComponentXChannelMapping.MetricId IsNot Nothing Then mapDict.Add(DominantFrequencyComponentXChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(DominantFrequencyComponentXChannelMapping.MetricId)))
-        If DominantFrequencyComponentYChannelMapping.MetricId IsNot Nothing Then mapDict.Add(DominantFrequencyComponentYChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(DominantFrequencyComponentYChannelMapping.MetricId)))
-        If DominantFrequencyComponentZChannelMapping.MetricId IsNot Nothing Then mapDict.Add(DominantFrequencyComponentZChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(DominantFrequencyComponentZChannelMapping.MetricId)))
-
-        Return mapDict
-
-    End Function
-
-End Class
-Public Class UploadSigicomVibrationViewModel
-
-    Public Property PPVXChannelMapping As MetricMapping
-    Public Property PPVYChannelMapping As MetricMapping
-    Public Property PPVZChannelMapping As MetricMapping
-
-    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
-
-        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
-
-        If PPVXChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVXChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVXChannelMapping.MetricId)))
-        If PPVYChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVYChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVYChannelMapping.MetricId)))
-        If PPVZChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVZChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVZChannelMapping.MetricId)))
-
-        Return mapDict
-
-    End Function
-
-End Class
-Public Class UploadRedboxViewModel
-
-    Public Property XMapping As MetricMapping
-    Public Property YMapping As MetricMapping
-    Public Property ZMapping As MetricMapping
-
-    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
-
-        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
-
-        If XMapping.MetricId IsNot Nothing Then mapDict.Add(XMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(XMapping.MetricId)))
-        If YMapping.MetricId IsNot Nothing Then mapDict.Add(YMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(YMapping.MetricId)))
-        If ZMapping.MetricId IsNot Nothing Then mapDict.Add(ZMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(ZMapping.MetricId)))
-
-        Return mapDict
-
-    End Function
-
-
-
-End Class
-Public Class UploadOsirisViewModel
-
-    Public Property TotalParticlesMapping As MetricMapping
-    Public Property PM10ParticlesMapping As MetricMapping
-    Public Property PM2point5ParticlesMapping As MetricMapping
-    Public Property PM1ParticlesMapping As MetricMapping
-    Public Property TemperatureMapping As MetricMapping
-    Public Property HumidityMapping As MetricMapping
-    Public Property WindSpeedMapping As MetricMapping
-    Public Property WindDirectionMapping As MetricMapping
-
-
-    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
-
-        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
-
-        If TotalParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(TotalParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(TotalParticlesMapping.MetricId)))
-        If PM10ParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(PM10ParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PM10ParticlesMapping.MetricId)))
-        If PM2point5ParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(PM2point5ParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PM2point5ParticlesMapping.MetricId)))
-        If PM1ParticlesMapping.MetricId IsNot Nothing Then mapDict.Add(PM1ParticlesMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PM1ParticlesMapping.MetricId)))
-        If TemperatureMapping.MetricId IsNot Nothing Then mapDict.Add(TemperatureMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(TemperatureMapping.MetricId)))
-        If HumidityMapping.MetricId IsNot Nothing Then mapDict.Add(HumidityMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(HumidityMapping.MetricId)))
-        If WindSpeedMapping.MetricId IsNot Nothing Then mapDict.Add(WindSpeedMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(WindSpeedMapping.MetricId)))
-        If WindDirectionMapping.MetricId IsNot Nothing Then mapDict.Add(WindDirectionMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(WindDirectionMapping.MetricId)))
-
-        Return mapDict
-
-    End Function
-
-End Class
 Public Class UploadPPVLiveViewModel
 
     Public Property XcvMapping As MetricMapping
@@ -2654,6 +2592,71 @@ Public Class UploadPPVLiveViewModel
 
     End Function
 
+
+End Class
+Public Class UploadRedboxViewModel
+
+    Public Property XMapping As MetricMapping
+    Public Property YMapping As MetricMapping
+    Public Property ZMapping As MetricMapping
+
+    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
+
+        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
+
+        If XMapping.MetricId IsNot Nothing Then mapDict.Add(XMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(XMapping.MetricId)))
+        If YMapping.MetricId IsNot Nothing Then mapDict.Add(YMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(YMapping.MetricId)))
+        If ZMapping.MetricId IsNot Nothing Then mapDict.Add(ZMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(ZMapping.MetricId)))
+
+        Return mapDict
+
+    End Function
+
+
+
+End Class
+Public Class UploadSigicomVibrationViewModel
+
+    Public Property PPVXChannelMapping As MetricMapping
+    Public Property PPVYChannelMapping As MetricMapping
+    Public Property PPVZChannelMapping As MetricMapping
+
+    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
+
+        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
+
+        If PPVXChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVXChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVXChannelMapping.MetricId)))
+        If PPVYChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVYChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVYChannelMapping.MetricId)))
+        If PPVZChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVZChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVZChannelMapping.MetricId)))
+
+        Return mapDict
+
+    End Function
+
+End Class
+Public Class UploadVibraViewModel
+
+    Public Property PPVXChannelMapping As MetricMapping
+    Public Property PPVYChannelMapping As MetricMapping
+    Public Property PPVZChannelMapping As MetricMapping
+    Public Property DominantFrequencyComponentXChannelMapping As MetricMapping
+    Public Property DominantFrequencyComponentYChannelMapping As MetricMapping
+    Public Property DominantFrequencyComponentZChannelMapping As MetricMapping
+
+    Public Function getMappingDictionary(MeasurementsDAL As IMeasurementsDAL) As Dictionary(Of String, MeasurementMetric)
+
+        Dim mapDict As New Dictionary(Of String, MeasurementMetric)
+
+        If PPVXChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVXChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVXChannelMapping.MetricId)))
+        If PPVYChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVYChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVYChannelMapping.MetricId)))
+        If PPVZChannelMapping.MetricId IsNot Nothing Then mapDict.Add(PPVZChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(PPVZChannelMapping.MetricId)))
+        If DominantFrequencyComponentXChannelMapping.MetricId IsNot Nothing Then mapDict.Add(DominantFrequencyComponentXChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(DominantFrequencyComponentXChannelMapping.MetricId)))
+        If DominantFrequencyComponentYChannelMapping.MetricId IsNot Nothing Then mapDict.Add(DominantFrequencyComponentYChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(DominantFrequencyComponentYChannelMapping.MetricId)))
+        If DominantFrequencyComponentZChannelMapping.MetricId IsNot Nothing Then mapDict.Add(DominantFrequencyComponentZChannelMapping.MappingName, MeasurementsDAL.GetMeasurementMetric(CInt(DominantFrequencyComponentZChannelMapping.MetricId)))
+
+        Return mapDict
+
+    End Function
 
 End Class
 

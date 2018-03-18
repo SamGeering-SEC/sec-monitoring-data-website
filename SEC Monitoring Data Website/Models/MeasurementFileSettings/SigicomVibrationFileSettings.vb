@@ -51,7 +51,7 @@ Namespace MeasurementFileSettings
 
         End Sub
 
-        Protected Overrides Sub getTextFileRowStartDateTimesAndDurations(pathToFile As String)
+        Public Overrides Sub getTextFileRowStartDateTimesAndDurations(pathToFile As String)
 
             Dim sr As New StreamReader(pathToFile)
             readTextFileHeader(sr)
@@ -81,7 +81,7 @@ Namespace MeasurementFileSettings
 
         End Sub
 
-        Protected Overrides Function readTextFile(pathToFile As String) As Boolean
+        Public Overrides Function readTextFile(pathToFile As String) As Boolean
 
             Try
 
