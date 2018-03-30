@@ -4,9 +4,11 @@ Imports System.Globalization
 Imports DotNet.Highcharts
 Imports DotNet.Highcharts.Options
 Imports DotNet.Highcharts.Options.Point
+Imports System.Collections.Concurrent
+Imports System.Threading.Tasks
 
 Public Class AssessmentCriterionGroupsController
-        Inherits ControllerBase
+    Inherits ControllerBase
 
     Public Sub New(MeasurementsDAL As IMeasurementsDAL)
 
@@ -951,6 +953,20 @@ Public Class AssessmentCriterionGroupsController
 
     End Function
 
+    Private Function calculateGraphingResult(
+        assessmentCriterion As AssessmentCriterion, graphingMeasurements As List(Of Measurement)
+    ) As FilteredMeasurementsSequence
+
+        Dim mDal = New EFMeasurementsDAL
+
+        Dim calcFilter = mDal.GetCalculationFilter(assessmentCriterion.CalculationFilterId)
+        Dim criterionGraphingMeasurements = graphingMeasurements.Where(
+            Function(m) m.MeasurementMetricId = calcFilter.MeasurementMetricId
+        ).ToList.ApplyCalculationFilter(calcFilter)
+        Return New FilteredMeasurementsSequence(criterionGraphingMeasurements, calcFilter)
+
+    End Function
+
     Public Function getViewAssessmentDataViewModel(
         MonitorLocationId As Integer, AssessmentCriterionGroupId As Integer,
         AssessmentDate As Date, StartOrEnd As String,
@@ -1002,19 +1018,13 @@ Public Class AssessmentCriterionGroupsController
         debugEvents.Add(New DebugEvent("Create graphing results"))
         Dim graphingMeasurements = assessmentMeasurements
         Dim graphingResults As New List(Of FilteredMeasurementsSequence)
-        For Each ac In assessmentCriteria
-            Dim calcFilter = MeasurementsDAL.GetCalculationFilter(ac.CalculationFilterId)
-            Dim criterionGraphingMeasurements = graphingMeasurements.Where(
-                Function(m) m.MeasurementMetricId = calcFilter.MeasurementMetricId
-            ).ToList.ApplyCalculationFilter(calcFilter)
-            graphingResults.Add(
-                New FilteredMeasurementsSequence(criterionGraphingMeasurements, calcFilter)
-            )
-        Next
+        graphingResults = assessmentCriteria.AsParallel().Select(Of FilteredMeasurementsSequence)(
+            Function(ac) calculateGraphingResult(ac, New List(Of Measurement)(graphingMeasurements))
+        ).ToList()
 
         ' Get assessment dates based on project working days
         debugEvents.Add(New DebugEvent("Get assessment dates based on working days"))
-        Dim project = MeasurementsDAL.GetProject(monitorLocation.ProjectId)
+        Dim project = MeasurementsDAL.GetProject(MonitorLocation.ProjectId)
         Dim aggregateDurationDates As List(Of Date)
         Select Case assessmentCriterionGroup.ThresholdAggregateDuration.AggregateDurationName
             Case "Working Day"
@@ -1032,7 +1042,7 @@ Public Class AssessmentCriterionGroupsController
         Dim assessmentPeriodDates As List(Of Date)
         assessmentPeriodDates = DateList(startDate, endDate, TimeResolutionType.Day)
         If assessmentCriterionGroup.ThresholdAggregateDuration.AggregateDurationName = "Working Day" Then
-            Dim workingPeriods = project.getWorkingHours(assessmentPeriodDates)
+            Dim workingPeriods = Project.getWorkingHours(assessmentPeriodDates)
             assessmentMeasurements = assessmentMeasurements.FilterDateTimeRanges(workingPeriods)
         End If
 
