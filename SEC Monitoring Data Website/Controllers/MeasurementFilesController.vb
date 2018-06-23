@@ -361,13 +361,17 @@ Public Class MeasurementFilesController
     End Function
 
     <HttpPost()> _
-    Public Function DeleteMeasurement(MeasurementId As Integer) As ActionResult
+    Public Function DeleteMeasurement(MeasurementFileId As Integer, MeasurementId As Integer) As ActionResult
 
         If Not UAL.CanDeleteMeasurements Then Return New HttpUnauthorizedResult()
 
-        Dim measurement = MeasurementsDAL.GetMeasurement(MeasurementId)
-        If measurement Is Nothing Then Return Nothing
-        MeasurementsDAL.DeleteMeasurement(MeasurementId)
+        Dim result = MeasurementsDAL.DeleteMeasurement(MeasurementId)
+        If result = False Then Return Nothing
+
+        Dim measurementFile = MeasurementsDAL.GetMeasurementFile(MeasurementFileId:=MeasurementFileId)
+        measurementFile.NumberOfMeasurements -= 1
+        MeasurementsDAL.UpdateMeasurementFileMeasurementCount(measurementFile)
+
         Return Nothing
 
     End Function

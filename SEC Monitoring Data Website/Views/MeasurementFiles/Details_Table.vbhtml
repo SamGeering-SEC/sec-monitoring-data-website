@@ -2,10 +2,12 @@
 
 @Code
     Dim showDeleteMeasurementLinks = DirectCast(ViewData("ShowDeleteMeasurementLinks"), Boolean)
+    Dim measurementFileId = Model.MeasurementFile.Id
 End Code
 
 @Html.HiddenFor(Function(model) model.NumPages)
 @Html.HiddenFor(Function(model) model.PageNumber)
+
 
 <table>
     <tr>
@@ -89,7 +91,7 @@ End Code
                             @Html.RouteLink(
                                 "Delete",
                                 "MeasurementDeleteByIdRoute",
-                                New With {.MeasurementId = m.Id},
+                                New With {.MeasurementId = m.Id, .MeasurementFileId = measurementFileId},
                                 New With {.class = "DeleteMeasurementLink sitewide-button-16 delete-button-16"}
                             )
                         End If

@@ -42,6 +42,7 @@ End Code
     };
 
     function deleteMeasurementSuccess(data, textStatus, jqXHR) {
+        getVariables();
         update_table();
     }
     function deleteMeasurementError(jqXHR, textStatus, errorThrown) {

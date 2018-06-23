@@ -316,6 +316,7 @@ Public Interface IMeasurementsDAL
     Function GetMeasurements(Optional db As SECMonitoringDbContext = Nothing) As IEnumerable(Of Measurement)
     Function GetMeasurement(MeasurementId As Integer, Optional db As SECMonitoringDbContext = Nothing) As Measurement
     Function DeleteMeasurement(MeasurementId As Integer) As Boolean
+    Function DeleteMeasurementsForFile(MeasurementFileId As Integer) As Boolean
 
     Function GetObjectFirstMeasurementStartDateTime(ObjectName As String, ObjectId As Integer) As Date
     Function GetObjectLastMeasurementStartDateTime(ObjectName As String, ObjectId As Integer) As Date
@@ -371,6 +372,8 @@ Public Interface IMeasurementsDAL
     Function MeasurementFileCanBeDeleted(MeasurementFileId As Integer) As Boolean
     Function DeleteMeasurementFile(MeasurementFileId As Integer) As Boolean
     Function GetMeasurementFileNumMeasurements(MeasurementFileId As Integer) As Integer
+
+    Function UpdateMeasurementFileMeasurementCount(measurementFile As MeasurementFile) As MeasurementFile
 
 #End Region
 

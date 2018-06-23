@@ -1336,11 +1336,17 @@ Partial Public Class EFMeasurementsDAL
 
         Try
 
-            Dim MeasurementToDelete As Measurement = db.Measurements.Include(Function(m) m.MeasurementFile).Single(Function(m) m.Id = MeasurementId)
-            db.Measurements.Remove(MeasurementToDelete)
-            Dim MeasurementFile = MeasurementToDelete.MeasurementFile
-            MeasurementFile.NumberOfMeasurements -= 1
-            SaveChanges(db)
+            Dim sql As String = "DELETE FROM Measurements WHERE Id =" + MeasurementId.ToString
+            Using conn As New SqlConnection(MeasurementsConnectionString)
+                Dim cmd As New SqlCommand(sql, conn)
+                Try
+                    conn.Open()
+                    cmd.ExecuteNonQuery()
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                    Return False
+                End Try
+            End Using
             Return True
 
         Catch ex As Exception
@@ -1351,6 +1357,32 @@ Partial Public Class EFMeasurementsDAL
         End Try
 
     End Function
+    Public Function DeleteMeasurementsForFile(MeasurementFileId As Integer) As Boolean Implements IMeasurementsDAL.DeleteMeasurementsForFile
+
+        Try
+
+            Dim sql As String = "DELETE FROM Measurements WHERE MeasurementFileId =" + MeasurementFileId.ToString
+            Using conn As New SqlConnection(MeasurementsConnectionString)
+                Dim cmd As New SqlCommand(sql, conn)
+                Try
+                    conn.Open()
+                    cmd.ExecuteNonQuery()
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                    Return False
+                End Try
+            End Using
+            Return True
+
+        Catch ex As Exception
+
+            Debug.WriteLine(ex.Message)
+            Return False
+
+        End Try
+
+    End Function
+
 
 #Region "SQL Queries"
 
@@ -2041,7 +2073,21 @@ Partial Public Class EFMeasurementsDAL
 
     End Function
 
+    Public Function UpdateMeasurementFileMeasurementCount(measurementFile As MeasurementFile) As MeasurementFile Implements IMeasurementsDAL.UpdateMeasurementFileMeasurementCount
 
+        Using db = New SECMonitoringDbContext
+
+            Dim dbMeasurementFile = db.MeasurementFiles.Single(Function(mf) mf.Id = measurementFile.Id)
+
+            dbMeasurementFile.NumberOfMeasurements = measurementFile.NumberOfMeasurements
+            db.Entry(dbMeasurementFile).State = Entity.EntityState.Modified
+            SaveChanges(db)
+
+            Return dbMeasurementFile
+
+        End Using
+
+    End Function
 
     Public Function MeasurementFileCanBeDeleted(MeasurementFileId As Integer) As Boolean Implements IMeasurementsDAL.MeasurementFileCanBeDeleted
 
@@ -2069,8 +2115,9 @@ Partial Public Class EFMeasurementsDAL
             Dim MeasurementFileToDelete As MeasurementFile = db.MeasurementFiles.Single(Function(mf) mf.Id = MeasurementFileId)
 
             ' Delete Measurements
-            Dim measurementsToDelete = db.Measurements.Where(Function(m) m.MeasurementFileId = MeasurementFileId)
-            db.Measurements.RemoveRange(measurementsToDelete)
+            Dim deleteMeasurementsSuccess = DeleteMeasurementsForFile(MeasurementFileId:=MeasurementFileId)
+            If Not deleteMeasurementsSuccess Then Return False
+            ' Delete File
             db.MeasurementFiles.Remove(MeasurementFileToDelete)
             SaveChanges(db)
             Return True

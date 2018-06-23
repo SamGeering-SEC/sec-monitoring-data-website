@@ -27,7 +27,7 @@ Public Class RouteConfig
         routes.MapRoute(name:="CountryDeleteByIdRoute", url:="Country/Delete/{CountryId}", defaults:=New With {.controller = "Countries", .action = "DeleteCountry"})
         routes.MapRoute(name:="DocumentDeleteByIdRoute", url:="Document/Delete/{DocumentId}", defaults:=New With {.controller = "Documents", .action = "DeleteDocument"})
         routes.MapRoute(name:="DocumentTypeDeleteByIdRoute", url:="Document-Type/Delete/{DocumentTypeId}", defaults:=New With {.controller = "DocumentTypes", .action = "DeleteDocumentType"})
-        routes.MapRoute(name:="MeasurementDeleteByIdRoute", url:="Measurement/Delete/{MeasurementId}", defaults:=New With {.controller = "MeasurementFiles", .action = "DeleteMeasurement"})
+        routes.MapRoute(name:="MeasurementDeleteByIdRoute", url:="Measurement/Delete/{MeasurementFileId}/{MeasurementId}", defaults:=New With {.controller = "MeasurementFiles", .action = "DeleteMeasurement"})
         routes.MapRoute(name:="MeasurementCommentTypeDeleteByIdRoute", url:="Measurement-Comment-Type/Delete/{MeasurementCommentTypeId}", defaults:=New With {.controller = "MeasurementCommentTypes", .action = "DeleteMeasurementCommentType"})
         routes.MapRoute(name:="MeasurementFileDeleteByIdRoute", url:="Measurement-File/Delete/{MeasurementFileId}", defaults:=New With {.controller = "MeasurementFiles", .action = "DeleteMeasurementFile"})
         routes.MapRoute(name:="MeasurementMetricDeleteByIdRoute", url:="Measurement-Metric/Delete/{MeasurementMetricId}", defaults:=New With {.controller = "MeasurementMetrics", .action = "DeleteMeasurementMetric"})
