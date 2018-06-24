@@ -1324,12 +1324,7 @@ Public Class AssessmentCriterionGroupsController
         Dim seriesList As New List(Of Series)
         For c = 0 To model.AssessmentResults.Count - 1
             ' Build a FilteredMeasurementsSequence
-            Dim criterionResults = model.AssessmentResults(c)
             Dim criterion = model.AssessmentCriteria(c)
-            Dim filteredMeasurements = New List(Of FilteredMeasurements)
-            For Each arsd As AssessmentResultSingleDay In criterionResults
-                filteredMeasurements.AddRange(arsd.getFilteredMeasurements())
-            Next
             Dim fms = model.GraphingResults(c)
             If fms.Count > 0 And criterion.PlotAssessedLevel Then
                 ' Set series plot options
