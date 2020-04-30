@@ -444,6 +444,8 @@
     <Compile Include="Migrations\201709010031426_ExtendedPermissionsForSystemMessages.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\Database\Classes\AirQualitySetting.vb" />
+    <Compile Include="Models\Database\Classes\AssessmentChartSeries\AssessmentSeriesData.vb" />
+    <Compile Include="Models\Database\Classes\AssessmentChartSeries\AssessmentSeries.vb" />
     <Compile Include="Models\Database\Classes\AssessmentCriterion.vb" />
     <Compile Include="Models\Database\Classes\AssessmentCriterionGroup.vb" />
     <Compile Include="Models\Database\Classes\AssessmentPeriodDurationType.vb" />
@@ -483,6 +485,9 @@
     <Compile Include="Models\Database\Classes\StandardDailyWorkingHours.vb" />
     <Compile Include="Models\Database\Classes\StandardWeeklyWorkingHours.vb" />
     <Compile Include="Models\Database\Classes\SystemMessage.vb" />
+    <Compile Include="Models\Database\Classes\Tasks\AssessmentTask.vb" />
+    <Compile Include="Models\Database\Classes\Tasks\AssessmentTaskType.vb" />
+    <Compile Include="Models\Database\Classes\Tasks\TaskStatus.vb" />
     <Compile Include="Models\Database\Classes\ThresholdAggregateDuration.vb" />
     <Compile Include="Models\Database\Classes\ThresholdType.vb" />
     <Compile Include="Models\Database\Classes\User.vb" />
