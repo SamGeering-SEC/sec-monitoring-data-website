@@ -6,6 +6,12 @@ Imports System.Web.Mvc
 
 
 Public Class RouteConfig
+
+    ''' <summary>
+    ''' Register Application Routes.
+    ''' </summary>
+    ''' <param name="routes"></param>
+    ''' <remarks></remarks>
     Public Shared Sub RegisterRoutes(ByVal routes As RouteCollection)
 
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}")

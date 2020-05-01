@@ -3,6 +3,12 @@ Imports System.Web.Optimization
 
 Public Class BundleConfig
     ' For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
+
+    ''' <summary>
+    ''' Register javascript bundles.
+    ''' </summary>
+    ''' <param name="bundles"></param>
+    ''' <remarks></remarks>
     Public Shared Sub RegisterBundles(ByVal bundles As BundleCollection)
         bundles.Add(New ScriptBundle("~/bundles/jquery").Include(
                    "~/Scripts/jquery-{version}.js"))
