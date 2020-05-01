@@ -1,5 +1,12 @@
 ﻿Public Module Lists
 
+    ''' <summary>
+    ''' Convert a list of Integers into a comma-separated string of values.
+    ''' </summary>
+    ''' <param name="thisList"></param>
+    ''' <param name="SpaceAfterComma"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function ToCSVstring(ByVal thisList As List(Of Integer), Optional SpaceAfterComma As Boolean = True) As String
 
         Dim thisString As String = ""
@@ -17,9 +24,13 @@
 
     End Function
 
+    ''' <summary>
+    ''' Calculate the continuous ranges in the list e.g. [1, 2, 3, 7, 8, 9] => [[1, 3], [7, 9]]
+    ''' </summary>
+    ''' <param name="thisList"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Function GetSequentialRanges(ByVal thisList As List(Of Integer)) As List(Of List(Of Integer))
-
-        ' Calculate the continuous ranges in the list e.g. [1, 2, 3, 7, 8, 9] => [[1, 3], [7, 9]]
 
         Dim starts = New List(Of Integer)
         Dim ends = New List(Of Integer)

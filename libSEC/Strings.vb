@@ -3,17 +3,36 @@ Imports System
 
 Public Module Strings
 
+    ''' <summary>
+    ''' Convert a String into a String which can be used for a Route.
+    ''' </summary>
+    ''' <param name="FromString"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function ToRouteName(ByVal FromString As String) As String
 
         Return FromString.Replace(" ", "-").Replace("%", "o|o")
 
     End Function
+
+    ''' <summary>
+    ''' Convert a Route string into its original representation.
+    ''' </summary>
+    ''' <param name="RouteName"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function FromRouteName(ByVal RouteName As String) As String
 
         Return RouteName.Replace("-", " ").Replace("   ", " - ").Replace("o|o", "%")
 
     End Function
 
+    ''' <summary>
+    ''' Add spaces between the words of text in Pascal case.
+    ''' </summary>
+    ''' <param name="PascalCaseText"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function SpaceOutPascalCaseText(PascalCaseText As String) As String
 
         Dim spacedText As String = ""
@@ -35,6 +54,12 @@ Public Module Strings
 
     End Function
 
+    ''' <summary>
+    ''' Return the pluralised version of a word.
+    ''' </summary>
+    ''' <param name="Word"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function Pluralise(Word As String) As String
 
         Dim newWord As String
@@ -49,6 +74,12 @@ Public Module Strings
 
     End Function
 
+    ''' <summary>
+    ''' Convert a string-encoded version of a Dictionary into a Dictionary object.
+    ''' </summary>
+    ''' <param name="RouteValuesString"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function ToDict(RouteValuesString As String) As Dictionary(Of String, Object)
 
         Dim rvDict As New Dictionary(Of String, Object)
@@ -67,6 +98,12 @@ Public Module Strings
 
     End Function
 
+    ''' <summary>
+    ''' Return the indefinite article for a given word.
+    ''' </summary>
+    ''' <param name="ForWord"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function IndefiniteArticle(ForWord As String) As String
 
         Dim firstLetter = LCase(Left(ForWord, 1))

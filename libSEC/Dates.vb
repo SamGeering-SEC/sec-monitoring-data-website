@@ -5,6 +5,10 @@ Public Module Dates
 
 #Region "Enums"
 
+    ''' <summary>
+    ''' List of time resolution types
+    ''' </summary>
+    ''' <remarks></remarks>
     Public Enum TimeResolutionType
         Millisecond
         Second
@@ -21,6 +25,12 @@ Public Module Dates
 
 #End Region
 
+    ''' <summary>
+    ''' Return the date of the Monday that begins the week containing ThisDate
+    ''' </summary>
+    ''' <param name="ThisDate">The date whose week to find the Monday of</param>
+    ''' <returns>Date of the Monday</returns>
+    ''' <remarks></remarks>
     Public Function MondayInTheWeekOf(ByVal ThisDate As Date) As Date
 
         Dim DoW
@@ -36,16 +46,36 @@ Public Module Dates
 
     End Function
 
+    ''' <summary>
+    ''' Return the Time component of a DateTime object.
+    ''' </summary>
+    ''' <param name="DateTime"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function TimeOnly(DateTime As Date) As Date
 
         Return Date.FromOADate(DateTime.ToOADate - Int(DateTime.ToOADate))
 
     End Function
+
+    ''' <summary>
+    ''' Return the Date component of a DateTime object.
+    ''' </summary>
+    ''' <param name="DateTime"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function DateOnly(DateTime As Date) As Date
 
         Return Date.FromOADate(Int(DateTime.ToOADate))
 
     End Function
+
+    ''' <summary>
+    ''' Return the Date component of each DateTime instance in the collection.
+    ''' </summary>
+    ''' <param name="DateTimeList"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function DatesOnly(ByRef DateTimeList As IEnumerable(Of Date)) As IEnumerable(Of Date)
 
         Dim dateList As New List(Of Date)
@@ -57,11 +87,25 @@ Public Module Dates
         Return dateList
 
     End Function
+
+    ''' <summary>
+    ''' Convert a DateTime into a TimeSpan
+    ''' </summary>
+    ''' <param name="DateTime"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function ToTimeSpan(DateTime As Date) As TimeSpan
 
         Return TimeSpan.FromDays(TimeOnly(DateTime).ToOADate)
 
     End Function
+
+    ''' <summary>
+    ''' Return the name of the day of the date OfDateTime.
+    ''' </summary>
+    ''' <param name="OfDateTime"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function DayName(OfDateTime As Date) As String
 
         Dim thisCulture = Globalization.CultureInfo.CurrentCulture
@@ -69,6 +113,15 @@ Public Module Dates
         Return thisCulture.DateTimeFormat.GetDayName(dayOfWeek)
 
     End Function
+
+    ''' <summary>
+    ''' Return True if TestDate lies between StartDate and EndDate (inclusive).
+    ''' </summary>
+    ''' <param name="TestDate"></param>
+    ''' <param name="StartDate"></param>
+    ''' <param name="EndDate"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     <Extension()> Public Function DateIsInDateRangeInclusive(TestDate As Date, StartDate As Date, EndDate As Date) As Boolean
 
         Dim tDate = TestDate.DateOnly.ToOADate
