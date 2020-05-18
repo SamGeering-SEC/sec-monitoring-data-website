@@ -1293,10 +1293,15 @@
     <None Include="My Project\PublishProfiles\secsite - FTP %282%29.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - FTP %283%29.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - FTP %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - FTP %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - FTP %286%29.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - FTP.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - ReadOnly - FTP.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - Web Deploy %282%29.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - Web Deploy %283%29.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - Web Deploy %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - Web Deploy %285%29.pubxml" />
+    <None Include="My Project\PublishProfiles\secsite - Web Deploy %286%29.pubxml" />
     <None Include="My Project\PublishProfiles\secsite - Web Deploy.pubxml" />
     <None Include="My Project\PublishProfiles\secsite.pubxml" />
     <None Include="My Project\PublishProfiles\Southdowns %282%29.pubxml" />
